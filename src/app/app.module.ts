@@ -7,6 +7,9 @@ import { MaterialModule } from "./material/material.module";
 import { HospitalModule } from "./modules/hospital/hospital.module";
 import { PagesModule } from "./modules/pages/pages.module";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatTableModule } from '@angular/material/table'
+import { CdkTableModule } from "@angular/cdk/table";
+
 
 @NgModule({
   declarations: [
@@ -14,6 +17,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   ],
   imports: [
     BrowserModule,
+    CdkTableModule,
+    MatTableModule,    
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
