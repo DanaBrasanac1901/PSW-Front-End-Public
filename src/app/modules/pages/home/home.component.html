@@ -1,43 +1,8 @@
-<<<<<<< Updated upstream
-<div class="bodyStyle">
-  <div class="header_container">
-    <div class="logo">
+<div class="grid">
 
-    </div>
-  <div class="blurb">
-  Our mission is to provide compassionate patient care with seamless
-          coordination and to advance medicine through unrivaled education,
-          research, and outreach in the many diverse communities we serve.
-          Our exceptional team of industry experts brings the vision and management expertise
-          that enables us to to continue to grow and challenge convention through our pioneering spirit,
-          scientific advancements, forward-thinking leadership, and collaborative approach to offering exceptional
-          patient care in the many unique communities we serve – while maintaining our national and international prominence.
-    </div>
-    </div>
-  <!-- TABELA SVIH OBJEKATA -->
-
-
-  <div class="objectTable_grid">
-    <table class="table">
-      <tr class="table-header">
-        <th class="header__item">Pacijent</th>
-        <th class="header__item">Komentar</th>
-      </tr>
-      <tr class="table-row">
-        <td class="table-data"></td>
-        <td class="table-data"></td>
-      </tr>
-  </table>
-</div>
-  <button style="background-color: darkslategrey"> Leave feedback</button>
-
-
-
-		</div>
-
-=======
-<h1>HealthcareMD</h1>
-    <div class="blurb">
+  <div class="header-grid">
+    <h1 >HealthcareMD</h1>
+    <p>
       Our mission is to provide compassionate patient care with seamless
       coordination and to advance medicine through unrivaled education,
       research, and outreach in the many diverse communities we serve.
@@ -45,21 +10,22 @@
       that enables us to to continue to grow and challenge convention through our pioneering spirit,
       scientific advancements, forward-thinking leadership, and collaborative approach to offering exceptional
       patient care in the many unique communities we serve – while maintaining our national and international prominence.
-    </div>
+    </p>
+  </div>
 
-    <div class="table-wrapper">
-      <table class="fl-table" cellspacing="0">
-        <tr>
-          <th>Id</th>
-          <th>PatientID</th>
-          <th>Text</th>
-        </tr>
-        <tr *ngFor="let feedback of feedbacks">
-          <td>{{feedback.id}}</td>
-          <td>{{feedback.patientId}}</td>
-          <td>{{feedback.text}}</td>
-        </tr>
-      </table>
-
-      </div>
->>>>>>> Stashed changes
+  <div class="table-grid">
+    <table class="fl-table" cellspacing="0">
+      <tr>
+        <th>Id</th>
+        <th>PatientID</th>
+        <th>Text</th>
+      </tr>
+      <tr *ngFor="let feedback of feedbacks">
+        <td>{{feedback.id}}</td>
+        <td>{{feedback.patientId}}</td>
+        <td>{{feedback.text}}</td>
+      </tr>
+    </table>
+    <button class="btn btn-white btn-animated"> Leave feedback</button>
+  </div>
+</div>
