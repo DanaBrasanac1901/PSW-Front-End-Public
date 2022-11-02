@@ -1,1 +1,25 @@
-<p>input-feedback works!</p>
+<body>
+  <form id="formlogin">
+    <table class="login_container">
+      <tr><td class="credential_labels" align="center">Ime</td></tr>
+      <tr>
+        <td align="center">
+          <input class="credential_inputs" type="text"  ([ngModel])="name">
+        </td>
+      </tr>
+      <tr>
+        <td class="credential_labels" align="center">Komentar</td>
+      </tr>
+      <tr>
+        <td align="center">
+          <textarea class="credential_inputs" type="text" ([ngModel])="comment"></textarea>
+        </td>
+      </tr>
+      <tr>
+        <td align="center">
+          <button class="btn" (click)="post()">Post comment</button>
+        </td>
+      </tr>
+    </table>
+  </form>
+</body>

@@ -1,6 +1,20 @@
 
 @import url('https://fonts.googleapis.com/css?family=Varela+Round');
 
+body {
+  overflow: hidden;
+  font-family: 'Varela Round', sans-serif;
+  background-image: url(../images/header.jpg);
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+}
+
 h1 {
   font-size: 500%;
   color: rgb(31,82,109);
@@ -13,6 +27,47 @@ p {
   width: 60%;
   color: rgb(94,111,120);
 }
+
+.grid {
+  
+  display: grid;
+  grid-template-rows: 1.6fr 1.6fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    "header-grid"
+    "table-grid";
+}
+
+.header-grid {
+  grid-area: header-grid;
+  margin-top: 10%;
+  margin-left: 10%;
+  font-size: large;
+}
+
+.table-grid {
+  grid-area: table-grid;
+  width: 50%;
+  margin-left: 10%;
+}
+.input-field {
+  margin-left: -140%;
+  margin-top:30%;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 0.5fr;
+  grid-template-rows: 1.6fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    "grid input-grid";
+}
+
+.input-grid {
+  grid-area: input-grid;
+}
+
 
 .table-wrapper {
   
@@ -124,38 +179,6 @@ p {
     }
 }
 
-.grid {
-  font-family: 'Varela Round', sans-serif;
-  background-image: url(../images/header.jpg);
-  background-size: cover;
-  background-position: center center;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  height: 100vh;
-  width: 100vw;
-  margin: 0;
-  padding: 0;
-  display: grid;
-  grid-template-rows: 1.6fr 1.6fr;
-  gap: 0px 0px;
-  grid-template-areas:
-    "header-grid"
-    "table-grid";
-}
-
-.header-grid {
-  
-  grid-area: header-grid;
-  margin-top:10%;
-  margin-left:10%;
-  font-size:large;
-}
-
-.table-grid {
-  grid-area: table-grid;
-  width:50%;
-  margin-left:10%;
-}
 
 .btn{
     margin-left:40%;

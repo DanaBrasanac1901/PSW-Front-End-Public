@@ -1,0 +1,70 @@
+
+@import url('https://fonts.googleapis.com/css?family=Varela+Round');
+
+body {
+  overflow: hidden;
+  font-family: 'Varela Round', sans-serif;
+}
+
+textarea{
+    width:70%;
+    height:120%;
+}
+  .login_container {
+  margin: 5% auto;
+  border-radius: 15px;
+  border-style: none;
+  width: 30%;
+  height: 50%;
+  background-color: rgb(31,82,109);
+  color: rgb(94,111,120);
+  line-height: 4em;
+}
+
+.credential_labels {
+  padding-top: 3px;
+  color: white;
+  font-size: 20px;
+}
+
+
+.credential_inputs {
+  font-size: 20px;
+  height: 30px;
+  width: 250px;
+  margin-top: -25px;
+  color: #ccc;
+  text-align: center;
+}
+
+  .credential_inputs::placeholder {
+    color: rgb(138, 137, 137);
+  }
+
+
+
+.btn {
+  text-decoration: none;
+  padding: 10px 20px;
+  display: inline-block;
+  border-radius: 100px;
+  transition: all .2s;
+  position: relative;
+  border: none;
+}
+
+  .btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  .btn:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  }
+
+.btn-white {
+  background-color: #fff;
+  color: #777;
+  font-size: 14px;
+}

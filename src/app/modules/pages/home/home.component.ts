@@ -24,4 +24,9 @@ export class HomeComponent implements OnInit {
     })
   }
 
+  display = false;
+  onPress() {
+    this.display = !this.display;
+  }
+
 }
