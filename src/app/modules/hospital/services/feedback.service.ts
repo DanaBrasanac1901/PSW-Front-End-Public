@@ -14,7 +14,7 @@ export class FeedbackService {
   constructor(private http: HttpClient) { }
 
   getFeedbacks(): Observable<Feedback[]> {
-    return this.http.get<Feedback[]>(this.apiHost + 'api/Feedback/', { headers: this.headers });
+    return this.http.get<Feedback[]>(this.apiHost + 'api/Feedback', { headers: this.headers });
   }
 
   getFeedback(id: number): Observable<Feedback> {

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Feedback } from '../model/feedback.model';
+import { FeedbackService } from '../services/feedback.service';
 
 @Component({
   selector: 'input-feedback',
@@ -9,26 +10,35 @@ import { Feedback } from '../model/feedback.model';
 export class InputFeedbackComponent implements OnInit {
 
   public feedback = new Feedback();
-  public name = "";
-  public comment = "";
+  name: string = "";
+  comment: string = "";
+  isVisible: boolean = false;
 
-  constructor() { }
+
+  constructor(private feedbackService: FeedbackService ) {}
 
   ngOnInit(): void {
   }
 
+  display = false;
   post()  {
     if (this.comment == "") {
       this.invalid();
-      return;
+      //return;
     }
-    if (this.name == "") {
-      this.feedback.visibleToPublic = true;
-    } else this.feedback.patient = this.name;
+    console.log(this.feedback.text);
+
+    this.feedbackService.createFeedback(this.feedback).subscribe(res => {
+      this.display = true;
+    });
   }
 
   invalid() {
 
+  }
+
+  close() {
+    this.display = false;
   }
 
 }

@@ -4,7 +4,7 @@
       <tr><td class="credential_labels" align="center">Ime</td></tr>
       <tr>
         <td align="center">
-          <input class="credential_inputs" type="text"  ([ngModel])="name">
+          <input class="credential_inputs" type="text" [(ngModel)]="feedback.patient">
         </td>
       </tr>
       <tr>
@@ -12,7 +12,13 @@
       </tr>
       <tr>
         <td align="center">
-          <textarea class="credential_inputs" type="text" ([ngModel])="comment"></textarea>
+          <textarea class="credential_inputs" type="text" [(ngModel)]="feedback.text"></textarea>
+        </td>
+      </tr>
+      <tr>
+        <td align="center">
+          <p>Visible?</p>
+          <input type="checkbox" [(ngModel)]="feedback.visibleToPublic">
         </td>
       </tr>
       <tr>
@@ -22,4 +28,8 @@
       </tr>
     </table>
   </form>
+  <div *ngIf="display" class="box">
+    <p>Comment sent for review!</p>
+    <label for="btn" (click)="close()">Close</label>
+  </div>
 </body>
