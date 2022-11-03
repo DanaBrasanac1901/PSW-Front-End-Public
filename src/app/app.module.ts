@@ -5,8 +5,10 @@ import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { MaterialModule } from "./material/material.module";
 import { HospitalModule } from "./modules/hospital/hospital.module";
+import { IntegrationModule } from "./modules/integration/integration.module";
 import { PagesModule } from "./modules/pages/pages.module";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {FormsModule,ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HttpClientModule,
     MaterialModule,
     PagesModule,
-    HospitalModule
+    HospitalModule,
+    IntegrationModule,
+    FormsModule,
+    ReactiveFormsModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
