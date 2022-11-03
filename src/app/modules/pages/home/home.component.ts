@@ -19,7 +19,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.feedbackService.getFeedbacks().subscribe(res => {
-      this.feedbacks = res;
+      this.feedbacks = res.filter(feedback => feedback.approved && feedback.visibleToPublic);
       this.dataSource.data = this.feedbacks;
     })
   }

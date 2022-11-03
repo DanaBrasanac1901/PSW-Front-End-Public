@@ -20,13 +20,11 @@
         <button class="btn btn-white btn-animated" (click)="onPress()"> Leave feedback</button>
         <table class="fl-table" cellspacing="0">
           <tr>
-            <th>Id</th>
             <th>Name</th>
             <th>Text</th>
           </tr>
           <tr *ngFor="let feedback of feedbacks">
-            <td>{{feedback.id}}</td>
-            <td>{{feedback.patient}}</td>
+            <td>{{feedback.patientId}}</td>
             <td>{{feedback.text}}</td>
           </tr>
         </table>

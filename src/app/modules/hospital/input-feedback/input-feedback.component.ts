@@ -10,9 +10,6 @@ import { FeedbackService } from '../services/feedback.service';
 export class InputFeedbackComponent implements OnInit {
 
   public feedback = new Feedback();
-  name: string = "";
-  comment: string = "";
-  isVisible: boolean = false;
 
 
   constructor(private feedbackService: FeedbackService ) {}
@@ -22,7 +19,7 @@ export class InputFeedbackComponent implements OnInit {
 
   display = false;
   post()  {
-    if (this.comment == "") {
+    if (this.feedback.text == "") {
       this.invalid();
       //return;
     }
