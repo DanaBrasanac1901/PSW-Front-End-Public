@@ -1,17 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup,FormControl,Validators } from '@angular/forms';
 import { BloodBankService } from '../services/blood-bank.service';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 @Component({
   selector: 'app-verify-integration',
   templateUrl: './verify-integration.component.html',
   styleUrls: ['./verify-integration.component.css']
 })
+
 export class VerifyIntegrationComponent implements OnInit {
   reactiveForm:FormGroup;
-  constructor(private BloodBankService:BloodBankService) { }
+  constructor(private BloodBankService:BloodBankService, private route: ActivatedRoute) { }
   public password="";
+  public  idd="";
   ngOnInit(): void {
+   this.idd = this.route.snapshot.paramMap.get('id');
     this.reactiveForm= new FormGroup({
 
       password1: new FormControl("", Validators.required),
@@ -37,7 +41,7 @@ export class VerifyIntegrationComponent implements OnInit {
   
   onSubmit(){
     console.log("anna");
-    this.BloodBankService.confirmNewbBoodBank(this.password)
+    this.BloodBankService.confirmNewbBoodBank(this.password, this.idd)
     .subscribe(
       response=>(
         console.log(response)
