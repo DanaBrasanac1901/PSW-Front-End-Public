@@ -47,7 +47,7 @@ p {
 
 .table-grid {
   grid-area: table-grid;
-  width: 50%;
+  width: 60%;
   margin-left: 10%;
 }
 .input-field {
@@ -65,6 +65,7 @@ p {
 }
 
 .input-grid {
+
   grid-area: input-grid;
 }
 
