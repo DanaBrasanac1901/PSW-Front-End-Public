@@ -2,7 +2,6 @@
 @import url('https://fonts.googleapis.com/css?family=Varela+Round');
 
 body {
-  background-color: transparent;
   overflow: hidden;
   font-family: 'Varela Round', sans-serif;
 }
@@ -109,39 +108,22 @@ body {
 label:hover {
   box-shadow: 0px 0px 30px #788daa83;
 }
-
-.r1 {
-  display: grid;
-  grid-template-columns: 0.9fr 0.1fr;
-  grid-template-rows: 1fr;
-  width:85%;
-  gap: 0px 0px;
-  grid-template-areas:
-    "slot1 slot2";
-}
-
-.slot1 {
-  grid-area: slot1;
-}
-
-.slot2 {
-  grid-area: slot2;
-}
-
-.r2 {
-  display: grid;
-  grid-template-columns: 0.9fr 0.1fr;
-  grid-template-rows: 1fr;
-  width: 85%;
-  gap: 0px 0px;
-  grid-template-areas:
-    "slot3 slot4";
-}
-
-.slot3 {
-  grid-area: slot3;
-}
-
-.slot4 {
-  grid-area: slot4;
-}
+.row {
+    width: 100%;
+    text-align: center; 
+  }
+  
+  .block {
+    width: 120px;
+    display: inline-block;
+  }
+  
+  h3 {
+    
+    margin-left: 43%;
+    margin-top: 3%;
+    font-size: 40px;
+    color: rgb(226, 207, 207);
+    font-weight:200;
+    font-stretch:ultra-condensed;
+  }

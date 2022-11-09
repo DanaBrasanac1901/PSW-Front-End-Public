@@ -1,10 +1,14 @@
 
 @import url('https://fonts.googleapis.com/css?family=Varela+Round');
+@font-face {
+  font-family: OpenSans;
+  src: url('/assets/fonts/OpenSans-CondLight.ttf'); /* IE9 */
+}
 
 body {
   overflow: hidden;
   font-family: 'Varela Round', sans-serif;
-  background-image: url(../images/header.jpg);
+  background-image: url(/assets/images/header.jpg);
   background-size: cover;
   background-position: center center;
   background-attachment: fixed;
@@ -58,17 +62,57 @@ p {
 .container {
   display: grid;
   grid-template-columns: 1fr 0.5fr;
-  grid-template-rows: 1.6fr;
+  grid-template-rows: 7% 93%;
   gap: 0px 0px;
   grid-template-areas:
+    "toolbar toolbar"
     "grid input-grid";
 }
 
-.input-grid {
+.toolbar {
+  grid-area: toolbar;
+  background-image: linear-gradient(to bottom, rgb(196, 196, 196), white);
+  display: grid;
+  grid-template-columns: 0.05fr 0.2fr 0.1fr;
+  gap: 10px;
+  grid-template-areas:
+    "logo-grid nameToolbar-grid user-grid"
+}
 
+.input-grid {
   grid-area: input-grid;
 }
 
+.nameToolbar-grid {
+    margin-top:17px;
+  grid-area: nameToolbar-grid;
+  font-family: "OpenSans", sans-serif;
+  color: rgb(94,111,120);
+  font-size:25px;
+}
+
+.logo-grid {
+    margin-left:100px;
+  height:55px;
+  width:55px;
+  grid-area: logo-grid;
+  background:transparent;
+  background-image: url(/assets/images/logo.png);
+  background-size:55px;
+  border:0;
+}
+
+.user-grid {
+    margin-left:1000px;
+  grid-area: user-grid;
+  height: 45px;
+  width: 50px;
+  margin-top:5px;
+  background: transparent;
+  background-image: url(/assets/images/user.png);
+  background-size: 50px;
+  border: 0;
+}
 
 .table-wrapper {
   
@@ -206,4 +250,40 @@ p {
   background-color: #fff;
   color: #777;
   font-size: 14px;
+}
+
+
+.user-menu{
+  position: absolute;
+  z-index: 2;
+  width:160px;
+  height:80px;
+  background-color: white;
+  border-radius: 10px;
+  margin-left:82%;
+  margin-top:5%;
+} 
+/*strelica*/
+.user-menu:before{
+  content: "";
+  position: absolute;
+  top: -10px;
+  left:30px;
+  rotate: 90deg;
+  z-index: 1;
+  border: solid 15px transparent;
+  border-right-color: #FFF;
+}
+
+ul{
+  margin-top:0;
+  margin-left:-24%;
+  list-style: none;
+}
+
+li{
+  vertical-align: middle;
+  height: 35px;
+  color: rgb(159, 175, 184);
+  text-align: center;
 }
