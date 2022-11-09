@@ -1,0 +1,24 @@
+<p>Verify your account!</p>
+
+<div class="fform">
+    <form [formGroup]="reactiveForm" (ngSubmit)="onSubmit()">
+    
+      <label>Password</label><br/>
+      <input type="text" id="password1" formControlName="password1" [(ngModel)]="password"><br/>
+      <div>
+      <small *ngIf="reactiveForm.get('password1').errors?.['required']"> This field is required</small>
+      </div>
+      <label>Confirm password</label><br/>
+      <input type="text" id="password2" formControlName="password2"><br/>
+      <div>
+          <small *ngIf="reactiveForm.get('password2').errors?.['required']"> This field is required</small>
+          </div>
+          <div>
+            <small *ngIf="reactiveForm.get('password2').errors?.['passwordMatch']"> Password is invalid</small>
+            </div>
+
+            <input type="submit" [disabled]="!reactiveForm.valid"value="submit">
+     
+  </form>
+  </div>
+  

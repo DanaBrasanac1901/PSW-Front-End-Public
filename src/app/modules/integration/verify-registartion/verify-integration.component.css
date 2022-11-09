@@ -1,0 +1,40 @@
+ody{
+    background-color: bisque;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    margin-top: 5%;
+    align-items: center;
+
+}
+.fform{
+    display: block;
+    text-align: center;
+    background-color: aquamarine;
+    position: absolute;
+    align-self: center;
+    align-items: center;
+    position: absolute;
+    width:40%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-49%, -49%);
+}
+form{
+    
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+}
+
+button{
+    align-self: center;
+}
+p{
+    text-align: center;
+    background-color: aquamarine;
+    position: absolute;
+    align-self: center;
+    align-items: center;
+}
