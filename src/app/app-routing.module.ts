@@ -5,8 +5,12 @@ import { VerifyIntegrationComponent } from './modules/integration/verify-regista
 
 
 const routes: Routes = [
+
   { path: 'home', component: HomeComponent },
   { path: 'verify-registration/:id', component: VerifyIntegrationComponent }
+
+  { path: '', component: HomeComponent }
+
 ];
 
 @NgModule({

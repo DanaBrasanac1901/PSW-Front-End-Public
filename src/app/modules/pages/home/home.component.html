@@ -1,1 +1,42 @@
-<p>home works!</p>
+<body>
+  <div class="container">
+
+    <div class="grid">
+
+      <div class="header-grid">
+        <h1>HealthcareMD</h1>
+        <p>
+          Our mission is to provide compassionate patient care with seamless
+          coordination and to advance medicine through unrivaled education,
+          research, and outreach in the many diverse communities we serve.
+          Our exceptional team of industry experts brings the vision and management expertise
+          that enables us to to continue to grow and challenge convention through our pioneering spirit,
+          scientific advancements, forward-thinking leadership, and collaborative approach to offering exceptional
+          patient care in the many unique communities we serve – while maintaining our national and international prominence.
+        </p>
+      </div>
+
+      <div class="table-grid">
+        <button class="btn btn-white btn-animated" (click)="onPress()"> Leave feedback</button>
+        <table class="fl-table" cellspacing="0">
+          <tr>
+            <th>Name</th>
+            <th>Text</th>
+          </tr>
+          <tr *ngFor="let feedback of feedbacks">
+            <td>{{feedback.patientId}}</td>
+            <td>{{feedback.text}}</td>
+          </tr>
+        </table>
+
+      </div>
+    </div>
+
+      <div class="input-grid">
+        <div id="comp-render" *ngIf="display" class="input-field">
+          <input-feedback></input-feedback>
+        </div>
+      </div>
+    
+  </div>
+</body>

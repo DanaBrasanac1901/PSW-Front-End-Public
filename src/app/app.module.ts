@@ -8,14 +8,21 @@ import { HospitalModule } from "./modules/hospital/hospital.module";
 import { IntegrationModule } from "./modules/integration/integration.module";
 import { PagesModule } from "./modules/pages/pages.module";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import {FormsModule,ReactiveFormsModule} from '@angular/forms';
+
+import { MatTableModule } from '@angular/material/table'
+import { CdkTableModule } from "@angular/cdk/table";
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
+    CdkTableModule,
+    MatTableModule,    
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
