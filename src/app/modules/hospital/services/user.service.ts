@@ -14,22 +14,27 @@ export class UserService {
   constructor(private http: HttpClient) { }
 
   getUsers(): Observable<User[]> {
-    return this.http.get<User[]>(this.apiHost + 'api/User', { headers: this.headers });
+    return this.http.get<User[]>(this.apiHost + 'api/patients', { headers: this.headers });
   }
 
   getUser(id: number): Observable<User> {
-    return this.http.get<User>(this.apiHost + 'api/User/' + id, { headers: this.headers });
+    return this.http.get<User>(this.apiHost + 'api/patients/' + id, { headers: this.headers });
   }
 
   deleteUser(id: any): Observable<any> {
-    return this.http.delete<any>(this.apiHost + 'api/User/' + id, { headers: this.headers });
+    return this.http.delete<any>(this.apiHost + 'api/patients/' + id, { headers: this.headers });
   }
 
-  createUser(user: any): Observable<any> {
-    return this.http.post<any>(this.apiHost + 'api/User', user, { headers: this.headers });
+  registerUser(user: any): Observable<any> {
+    return this.http.post<any>(this.apiHost + 'api/patients/register', user, { headers: this.headers });
   }
+
+  loginUser(user: any): Observable<any> {
+    return this.http.post<any>(this.apiHost + 'api/patients/login', user, { headers: this.headers });
+  }
+
 
   updateUser(user: any): Observable<any> {
-    return this.http.put<any>(this.apiHost + 'api/User/' + user.id, user, { headers: this.headers });
+    return this.http.put<any>(this.apiHost + 'api/patients/' + user.id, user, { headers: this.headers });
   }
 }

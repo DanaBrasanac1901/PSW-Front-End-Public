@@ -1,5 +1,5 @@
 <body>
-  <h3>Registration</h3>
+  <h3 class="header">Login</h3>
     <form id="formlogin">
       <table class="login_container">
         <tr>
@@ -18,45 +18,11 @@
             </div>
           </td>
         </tr>
-        <tr>
-          <td align="center">
-            <div class="row">
-              <p class="block">Full name:</p>
-              <input type="text" name="name" class="block" [(ngModel)]="user.name">
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td align="center">
-            <div class="row">
-              <p class="block">Address:</p>
-              <input type="text" name="adress" class="block" [(ngModel)]="user.adress">
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td align="center">
-            <div class="row">
-              <p class="block">Phone number:</p>
-              <input type="text" name="number" class="block">
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td align="center">
-            <div class="row">
-              <p class="block">Gender:</p>
-              <input type="radio" name="gender" id="male" value="MALE" [(ngModel)]="user.gender">
-              <label for="male">Male</label>
-              <input type="radio" name="gender" id="female" value="FEMALE" [(ngModel)]="user.gender">
-              <label for="female">Female</label>
-            </div>
-          </td>
-        </tr>
+        
   
         <tr>
           <td align="center">
-            <button class="btn" >Create account</button>
+            <button class="btn" (click)="post()">Login</button>
           </td>
         </tr>
       </table>

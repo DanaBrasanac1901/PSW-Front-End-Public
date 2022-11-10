@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
+import { NgToastComponent, NgToastService } from 'ng-angular-popup';
 import { Feedback } from 'src/app/modules/hospital/model/feedback.model';
 import { FeedbackService } from 'src/app/modules/hospital/services/feedback.service';
 
@@ -18,14 +19,14 @@ export class HomeComponent implements OnInit {
   public displayedColumns = ['id','patientId'];
   public feedbacks: Feedback[] = [];
 
-  constructor(private feedbackService: FeedbackService, private router: Router) {}
+  constructor(private feedbackService: FeedbackService, private router: Router, private toast:NgToastService) {}
 
   ngOnInit(): void {
     this.feedbackService.getFeedbacks().subscribe(res => {
       this.feedbacks = res.filter(feedback => feedback.approved && feedback.visibleToPublic);
       this.dataSource.data = this.feedbacks;
     });
-    toast("Nndjckasnc");
+    
   }
 
   display = false;

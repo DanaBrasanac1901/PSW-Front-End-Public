@@ -14,16 +14,24 @@ body {
   margin: 0;
   padding: 0;
 }
+
+.header {
+  margin-left:45%;
+  font-size: 300%;
+  color: rgb(31,82,109);
+  font-weight:200;
+  font-stretch:ultra-condensed;
+}
 .login_container {
   margin: 5% auto;
   border-radius: 15px;
-  width: 30%;
+  width: 25%;
   height: 50%;
   background-color: rgb(31,82,109);
   background-image: linear-gradient(to right, rgb(127, 175, 201), rgb(40, 103, 136));
   border: 2px solid;
   border-color: rgb(217, 214, 211);
-  color: rgb(94,111,120);
+  color: rgb(255, 255, 255);
   line-height: 4em;
 }
 

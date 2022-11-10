@@ -10,6 +10,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTableModule } from '@angular/material/table'
 import { CdkTableModule } from "@angular/cdk/table";
 import { FormsModule } from '@angular/forms';
+import {NgToastModule} from 'ng-angular-popup'
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { FormsModule } from '@angular/forms';
     MaterialModule,
     PagesModule,
     HospitalModule,
-    FormsModule
+    FormsModule,
+    NgToastModule
   ],
   providers: [],
   bootstrap: [AppComponent]

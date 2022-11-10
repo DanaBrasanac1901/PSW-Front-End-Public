@@ -1,5 +1,5 @@
 <body>
-    <h3>Registration</h3>
+    <h3 class="header">Registration</h3>
       <form id="formlogin">
         <table class="login_container">
           <tr>
@@ -37,8 +37,8 @@
           <tr>
             <td align="center">
               <div class="row">
-                <p class="block">Phone number:</p>
-                <input type="text" name="number" class="block">
+                <p class="block">Jmbg:</p>
+                <input type="text" name="jmbg" class="block" [(ngModel)]="user.jmbg">
               </div>
             </td>
           </tr>
@@ -56,7 +56,7 @@
     
           <tr>
             <td align="center">
-              <button class="btn" >Create account</button>
+              <button class="btn" (click)="post()">Create account</button>
             </td>
           </tr>
         </table>

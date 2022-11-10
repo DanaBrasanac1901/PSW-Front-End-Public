@@ -27,7 +27,6 @@
             ],
             "scripts": [
               
-                "src/assets/toast/toast.js"
             ]
           },
           "configurations": {
