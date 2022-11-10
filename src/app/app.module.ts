@@ -13,7 +13,8 @@ import {FormsModule,ReactiveFormsModule} from '@angular/forms';
 
 import { MatTableModule } from '@angular/material/table'
 import { CdkTableModule } from "@angular/cdk/table";
-
+import { FormsModule } from '@angular/forms';
+import {NgToastModule} from 'ng-angular-popup'
 
 @NgModule({
   declarations: [
@@ -29,6 +30,8 @@ import { CdkTableModule } from "@angular/cdk/table";
     MaterialModule,
     PagesModule,
     HospitalModule,
+    FormsModule,
+    NgToastModule,
     IntegrationModule,
     FormsModule,
     ReactiveFormsModule

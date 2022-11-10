@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgToastService } from 'ng-angular-popup';
 import { Feedback } from '../model/feedback.model';
 import { FeedbackService } from '../services/feedback.service';
 
@@ -12,16 +13,16 @@ export class InputFeedbackComponent implements OnInit {
   public feedback = new Feedback();
 
 
-  constructor(private feedbackService: FeedbackService ) {}
+  constructor(private feedbackService: FeedbackService, private toast:NgToastService ) {}
 
   ngOnInit(): void {
   }
 
   display = false;
   post()  {
-    if (this.feedback.text == "") {
+    if (this.feedback.text === '') {
       this.invalid();
-      //return;
+      return;
     }
     console.log(this.feedback.text);
 
@@ -31,7 +32,7 @@ export class InputFeedbackComponent implements OnInit {
   }
 
   invalid() {
-
+    this.toast.error({detail:'Comment cannot be empty',summary:"Please complete the form.",duration:5000});
   }
 
   close() {
