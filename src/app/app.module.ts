@@ -7,6 +7,7 @@ import { MaterialModule } from "./material/material.module";
 import { HospitalModule } from "./modules/hospital/hospital.module";
 import { PagesModule } from "./modules/pages/pages.module";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { MatTableModule } from '@angular/material/table'
 import { CdkTableModule } from "@angular/cdk/table";
 
@@ -24,7 +25,8 @@ import { CdkTableModule } from "@angular/cdk/table";
     HttpClientModule,
     MaterialModule,
     PagesModule,
-    HospitalModule
+    HospitalModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,122 @@
+<body>
+  <div class="row">
+    <div class="element">
+      <div class="header-box">
+        <h3 class="header" style="width:40%;margin-left:27%">Registration</h3>
+      </div>
+
+      <form id="formlogin">
+        <table class="login_container">
+          <tr>
+            <td align="center">
+              <div class="row">
+                  <p class="block">Email:</p>
+                  <input type="text" name="email" class="block" [(ngModel)]="user.email">
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td align="center">
+              <div class="row">
+                <p class="block">Password:</p>
+                <input type="password" name="pasword" class="block" [(ngModel)]="user.password">
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td align="center">
+              <div class="row">
+                <p class="block">Full name:</p>
+                <input type="text" name="name" class="block" [(ngModel)]="user.name">
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td align="center">
+              <div class="row">
+                <p class="block">Address:</p>
+                <input type="text" name="adress" class="block" [(ngModel)]="user.adress">
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td align="center">
+              <div class="row">
+                <p class="block">Jmbg:</p>
+                <input type="text" name="jmbg" class="block" [(ngModel)]="user.jmbg">
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td align="center">
+              <div class="row">
+                <p class="block">Gender:</p>
+                <input type="radio" name="gender" id="male" value="MALE" [(ngModel)]="user.gender">
+                <label for="male">Male</label>
+                <input type="radio" name="gender" id="female" value="FEMALE" [(ngModel)]="user.gender">
+                <label for="female">Female</label>
+              </div>
+            </td>
+          </tr>
+
+          <tr>
+            <td align="center">
+              <div class="row">
+                <p class="block">Do you have allergies?</p>
+                <input type="radio" name="allergies" id="yes" value="YES" (click)="showAllergies()">
+                <label for="yes">Yes</label>
+                <input type="radio" name="allergies" id="no" value="NO" (click)="hideAllergies()">
+                <label for="no">No</label>
+              </div>
+            </td>
+          </tr>
+
+          <tr>
+            <td align="center">
+              <div class="row">
+                <p class="block">Choose a doctor:</p>
+                <select >
+                  <option *ngFor="let doctor of doctors">{{doctor.name}}</option>
+                </select>
+              </div>
+            </td>
+          </tr>
+
+    
+          <tr>
+            <td align="center">
+              <button class="btn" (click)="post()">Create account</button>
+            </td>
+          </tr>
+        </table>
+      </form>
+    </div>
+
+    <div class="element">
+      <div id="allergyTable_render" *ngIf="displayAllergies" style="margin-left:-10%;" >
+        <div class="header-box" >
+          <h3 class="header"style="margin-left:0; font-size: 200%; width:40%" >Select your allergies:</h3>
+        </div>
+        <table class="fl-table"  style="margin-left:0%;width:40%;">
+          <tr>
+            <th colspan="2">Allergy</th>
+          </tr>
+          <tr *ngFor="let allergy of allergies">
+            <td>{{allergy.name}}</td>
+            <td><input type="checkbox" value="{{allergy.name}}" [(ngModel)]="allergy.checked"></td>
+            
+          </tr>
+          <tr >
+            <td colspan="2">
+            <button class="btn" (click)="addAllergies()">Add allergies</button>
+          </td>
+          </tr>
+        </table>
+        
+
+      </div>
+    </div>
+
+    </div>
+    </body>
+    
