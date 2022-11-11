@@ -11,10 +11,11 @@ import { InputFeedbackComponent } from './input-feedback/input-feedback.componen
 
 const routes: Routes = [
   { path: 'rooms', component: RoomsComponent },
-  { path: 'input-feedback', component: InputFeedbackComponent },
   { path: 'rooms/add', component: CreateRoomComponent },
   { path: 'rooms/:id', component: RoomDetailComponent },  
   { path: 'rooms/:id/update', component: UpdateRoomComponent },
+
+  
 ];
 
 @NgModule({
@@ -24,6 +25,7 @@ const routes: Routes = [
     CreateRoomComponent,
     UpdateRoomComponent,
     InputFeedbackComponent
+    
   ],
   imports: [
     CommonModule,

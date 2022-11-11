@@ -5,12 +5,14 @@ import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { MaterialModule } from "./material/material.module";
 import { HospitalModule } from "./modules/hospital/hospital.module";
+import { IntegrationModule } from "./modules/integration/integration.module";
 import { PagesModule } from "./modules/pages/pages.module";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+
 import { MatTableModule } from '@angular/material/table'
 import { CdkTableModule } from "@angular/cdk/table";
-
+import { FormsModule } from '@angular/forms';
+import {NgToastModule} from 'ng-angular-popup'
 
 @NgModule({
   declarations: [
@@ -26,7 +28,11 @@ import { CdkTableModule } from "@angular/cdk/table";
     MaterialModule,
     PagesModule,
     HospitalModule,
-    FormsModule
+    FormsModule,
+    NgToastModule,
+    IntegrationModule,
+    FormsModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]
