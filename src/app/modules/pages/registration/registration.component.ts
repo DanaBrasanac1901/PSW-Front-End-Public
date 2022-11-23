@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgToastService } from 'ng-angular-popup';
 import { User } from '../../hospital/model/user.model';
-import { UserService } from '../../hospital/services/user.service';
+import { CredentialsService } from '../../hospital/services/credentials.service';
 
 @Component({
   selector: 'app-registration',
@@ -23,7 +23,7 @@ export class RegistrationComponent implements OnInit {
     {name:'doc2'}
   ]
 
-  constructor(private toast:NgToastService,private userService:UserService) { }
+  constructor(private toast:NgToastService,private credentialsService:CredentialsService) { }
 
   ngOnInit(): void {
     console.log(this.allergies);
@@ -31,34 +31,34 @@ export class RegistrationComponent implements OnInit {
 
   post()  {
     
-    if(!this.checkValidity()) return;
+    //if(!this.checkValidity()) return;
 
-    this.userService.registerUser(this.user).subscribe(res => {
-      this.toast.success({detail:"Succesfully registered!",summary:'Verification link was sent to your email.',duration:5000});
-    });
+    // this.credentialsService.register(this.user).subscribe(res => {
+    //   this.toast.success({detail:"Succesfully registered!",summary:'Verification link was sent to your email.',duration:5000});
+    // });
   }
 
 
   checkValidity(){
-    if (this.user.email === '' || this.user.adress==='' || this.user.gender==='' || this.user.jmbg==='' || this.user.name==='' || this.user.password==='') {
-      this.toast.error({detail:'Required fields are empty!',summary:"Please complete the form.",duration:5000});
-      return false;
-    }
+    // if (this.user.email === '' || this.user.adress==='' || this.user.gender==='' || this.user.jmbg==='' || this.user.name==='' || this.user.password==='') {
+    //   this.toast.error({detail:'Required fields are empty!',summary:"Please complete the form.",duration:5000});
+    //   return false;
+    // }
 
     
-    console.log(this.selectedAllergies);
-    if(this.displayAllergies){
-      if(this.selectedAllergies.length===0){
-        this.toast.error({detail:'No allergies were selected!',summary:"Add allergies, or check 'No allergies'.",duration:5000});
-        return false;
-      }
-    }
+    // console.log(this.selectedAllergies);
+    // if(this.displayAllergies){
+    //   if(this.selectedAllergies.length===0){
+    //     this.toast.error({detail:'No allergies were selected!',summary:"Add allergies, or check 'No allergies'.",duration:5000});
+    //     return false;
+    //   }
+    // }
 
-    if (isNaN(Number(this.user.jmbg))){
-      this.toast.error({detail:'Jmbg contains only numbers!',summary:"Please enter a valid jmbg.",duration:5000});
-      return false;
-    }
-    return true;
+    // if (isNaN(Number(this.user.jmbg))){
+    //   this.toast.error({detail:'Jmbg contains only numbers!',summary:"Please enter a valid jmbg.",duration:5000});
+    //   return false;
+    // }
+    // return true;
   }
 
   displayAllergies=false;

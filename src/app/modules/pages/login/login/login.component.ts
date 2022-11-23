@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgToastService } from 'ng-angular-popup';
 import { User } from 'src/app/modules/hospital/model/user.model';
-import { UserService } from 'src/app/modules/hospital/services/user.service';
+import { CredentialsService } from 'src/app/modules/hospital/services/credentials.service';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +13,7 @@ export class LoginComponent implements OnInit {
   public user=new User();
   public variable='';
 
-  constructor(private toast:NgToastService,private userService:UserService) { }
+  constructor(private toast:NgToastService,private credentialsService:CredentialsService) { }
 
   ngOnInit(): void {
   }
@@ -21,7 +21,8 @@ export class LoginComponent implements OnInit {
   post(){
     if(!this.checkValidity()) return;
 
-    this.userService.loginUser(this.user).subscribe(res => {
+    this.user.role='PATIENT';
+    this.credentialsService.login(this.user).subscribe(res => {
       if(!res){
         this.toast.error({detail:'Invalid email/password!',summary:"Please try again.",duration:5000});
         return;

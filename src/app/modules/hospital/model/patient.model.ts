@@ -1,10 +1,11 @@
-export class User {
-    id: number=0;
+export class Patient {
     email: string = '';
     password:string='';
     name:string='';
-    surname:string='';
-    role: string='';
+    adress:string='';
+    gender:string='';
+    jmbg:string='';
+
 
   
     public constructor(obj?: any) {
@@ -13,6 +14,9 @@ export class User {
         this.password = obj.password;
 
         this.name = obj.name;
+        this.adress = obj.adress;
+        this.gender = obj.gender;
+        this.jmbg = obj.jmbg;
 
       }
     }

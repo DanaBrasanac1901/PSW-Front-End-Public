@@ -1,40 +1,40 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { User } from '../model/user.model';
+import { Patient } from '../model/patient.model';
 
 @Injectable({
   providedIn: 'root'
 })
-export class UserService {
+export class PatientService {
 
   apiHost: string = 'http://localhost:16177/';
   headers: HttpHeaders = new HttpHeaders({ 'Content-Type': 'application/json' });
 
   constructor(private http: HttpClient) { }
 
-  getUsers(): Observable<User[]> {
-    return this.http.get<User[]>(this.apiHost + 'api/patients', { headers: this.headers });
+  getPatients(): Observable<Patient[]> {
+    return this.http.get<Patient[]>(this.apiHost + 'api/patients', { headers: this.headers });
   }
 
-  getUser(id: number): Observable<User> {
-    return this.http.get<User>(this.apiHost + 'api/patients/' + id, { headers: this.headers });
+  getPatient(id: number): Observable<Patient> {
+    return this.http.get<Patient>(this.apiHost + 'api/patients/' + id, { headers: this.headers });
   }
 
-  deleteUser(id: any): Observable<any> {
+  deletePatient(id: any): Observable<any> {
     return this.http.delete<any>(this.apiHost + 'api/patients/' + id, { headers: this.headers });
   }
 
-  registerUser(user: any): Observable<any> {
+  registerPatient(user: any): Observable<any> {
     return this.http.post<any>(this.apiHost + 'api/patients/register', user, { headers: this.headers });
   }
 
-  loginUser(user: any): Observable<any> {
+  loginPatient(user: any): Observable<any> {
     return this.http.post<any>(this.apiHost + 'api/patients/login', user, { headers: this.headers });
   }
 
 
-  updateUser(user: any): Observable<any> {
+  updatePatient(user: any): Observable<any> {
     return this.http.put<any>(this.apiHost + 'api/patients/' + user.id, user, { headers: this.headers });
   }
 }
