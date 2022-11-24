@@ -6,6 +6,7 @@ import { HttpClient } from '@angular/common/http';
 import * as moment from "moment";
 import { Observable } from 'rxjs';
 import { HttpHeaders } from '@angular/common/http';
+import { RegDTO } from '../model/regDTO.model';
 
 @Injectable({
   providedIn: 'root',
@@ -19,7 +20,7 @@ export class AuthService {
       
     login(user:User ): Observable<any> {
         var logRes=this.http.post<any>(this.apiHost + 'api/Credentials/login', user, { headers: this.headers });
-        console.log(logRes);
+        
         this.setSession(logRes);
         logRes.pipe(
             shareReplay());
@@ -27,7 +28,9 @@ export class AuthService {
         return logRes;
     }
    
-
+    register(user:RegDTO): Observable<any> {
+        return this.http.post<any>(this.apiHost + 'api/Credentials/register', user, { headers: this.headers });
+    }
 
     private setSession(authResult) {
         const expiresAt = moment().add(authResult.expiresIn,'second');
