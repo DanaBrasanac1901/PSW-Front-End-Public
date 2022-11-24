@@ -8,11 +8,14 @@ import { HospitalModule } from "./modules/hospital/hospital.module";
 import { IntegrationModule } from "./modules/integration/integration.module";
 import { PagesModule } from "./modules/pages/pages.module";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HTTP_INTERCEPTORS } from "@angular/common/http";
 
 import { MatTableModule } from '@angular/material/table'
 import { CdkTableModule } from "@angular/cdk/table";
 import { FormsModule } from '@angular/forms';
 import {NgToastModule} from 'ng-angular-popup'
+
+import { AuthInterceptor } from "./auth/auth.interceptor";
 
 @NgModule({
   declarations: [
@@ -32,9 +35,17 @@ import {NgToastModule} from 'ng-angular-popup'
     NgToastModule,
     IntegrationModule,
     FormsModule,
+    
 
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }
+  ],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }
