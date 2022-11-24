@@ -4,25 +4,32 @@ import { CredentialsService } from './credentials.service';
 import { User } from '../model/user.model';
 import { HttpClient } from '@angular/common/http';
 import * as moment from "moment";
+import { Observable } from 'rxjs';
+import { HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
+    apiHost: string = 'http://localhost:16177/';
+    headers: HttpHeaders = new HttpHeaders({ 'Content-Type': 'application/json' });
+
     constructor(private http: HttpClient, private credentialsService:CredentialsService) {
     }
       
-    login(user:User ) {
-        var logRes = this.credentialsService.login(user);
+    login(user:User ): Observable<any> {
+        var logRes=this.http.post<any>(this.apiHost + 'api/Credentials/login', user, { headers: this.headers });
         console.log(logRes);
         this.setSession(logRes);
-        return logRes.pipe(
+        logRes.pipe(
             shareReplay());
+        
+        return logRes;
     }
    
 
 
-		private setSession(authResult) {
+    private setSession(authResult) {
         const expiresAt = moment().add(authResult.expiresIn,'second');
 
         localStorage.setItem('id_token', authResult.idToken);

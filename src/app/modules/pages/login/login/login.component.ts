@@ -27,11 +27,11 @@ export class LoginComponent implements OnInit {
     this.authService
       .login(this.user)
       .subscribe(response => {
-        if(response.status!=200){
-          this.toast.error({detail:'Invalid email/password!',summary:"Please try again.",duration:5000});
+        this.router.navigate(['/']);
+      },
+      error=>{
+        this.toast.error({detail:'Incorrect email or password!', duration:5000});
           return;
-        }
-        this.router.navigate(['/dashboard']);
       });
   }
 
