@@ -40,8 +40,10 @@ export class VerifyIntegrationComponent implements OnInit {
   };
   
   onSubmit(){
+    const formDate = new FormData();
+    formDate.append("password", this.password);
     console.log("anna");
-    this.BloodBankService.confirmNewbBoodBank(this.password, this.idd)
+    this.BloodBankService.confirmNewbBoodBank(formDate, this.idd)
     .subscribe(
       response=>(
         console.log(response)

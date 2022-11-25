@@ -2,6 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { VerifyIntegrationComponent } from './verify-integration.component';
 
+
 describe('VerifyIntegrationComponent', () => {
   let component: VerifyIntegrationComponent;
   let fixture: ComponentFixture<VerifyIntegrationComponent>;
