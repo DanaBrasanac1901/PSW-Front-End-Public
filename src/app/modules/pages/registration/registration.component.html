@@ -76,7 +76,7 @@
               <div class="row">
                 <p class="block">Choose a doctor:</p>
                 <select >
-                  <option *ngFor="let doctor of doctors">{{doctor.name}}</option>
+                  <option *ngFor="let doctor of doctors">{{doctor.name}} {{doctor.surname}}</option>
                 </select>
               </div>
             </td>
@@ -119,4 +119,3 @@
 
     </div>
     </body>
-    

@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['/']);
       },
       error=>{
-        this.toast.error({detail:'Incorrect email or password!', duration:5000});
+        this.toast.error({ detail: 'Incorrect email or password!', summary: "Please try again.", duration:5000});
           return;
       });
   }
