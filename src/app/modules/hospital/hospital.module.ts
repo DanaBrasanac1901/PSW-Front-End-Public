@@ -8,6 +8,9 @@ import { RoomDetailComponent } from "./room-detail/room-detail.component";
 import { RoomsComponent } from "./rooms/rooms.component";
 import { UpdateRoomComponent } from "./update-room/update-room.component";
 import { InputFeedbackComponent } from './input-feedback/input-feedback.component';
+import { PatientHomepageComponent } from './patient-homepage/patient-homepage/patient-homepage.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
 
 const routes: Routes = [
   { path: 'rooms', component: RoomsComponent },
@@ -24,7 +27,8 @@ const routes: Routes = [
     RoomDetailComponent,
     CreateRoomComponent,
     UpdateRoomComponent,
-    InputFeedbackComponent
+    InputFeedbackComponent,
+    PatientHomepageComponent
     
   ],
   imports: [
@@ -32,7 +36,9 @@ const routes: Routes = [
     MaterialModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    MatButtonModule,
+    MatToolbarModule
   ],
   exports: [
     RouterModule,

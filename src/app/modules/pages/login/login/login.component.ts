@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
     this.authService
       .login(this.user)
       .subscribe(response => {
-        this.router.navigate(['/']);
+        this.router.navigate(['/patient-home']);
       },
       error=>{
         this.toast.error({detail:'Incorrect email or password!', duration:5000});

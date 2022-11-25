@@ -29,8 +29,9 @@ export class AuthService {
     }
    
     register(user:RegDTO): Observable<any> {
-        return this.http.post<any>(this.apiHost + 'api/Credentials/register', user, { headers: this.headers });
+        return this.http.post<any>(this.apiHost + 'api/Credentials/send-activation', user, { headers: this.headers });
     }
+
 
     private setSession(authResult) {
         const expiresAt = moment().add(authResult.expiresIn,'second');
@@ -40,6 +41,7 @@ export class AuthService {
     }          
 
     logout() {
+        console.log("usao u lohout");
         localStorage.removeItem("id_token");
         localStorage.removeItem("expires_at");
     }
