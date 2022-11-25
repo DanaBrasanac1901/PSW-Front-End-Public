@@ -9,7 +9,7 @@ import { IntegrationModule } from "./modules/integration/integration.module";
 import { PagesModule } from "./modules/pages/pages.module";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {FormsModule,ReactiveFormsModule} from '@angular/forms';
-
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 @NgModule({
   declarations: [
     AppComponent
@@ -24,7 +24,9 @@ import {FormsModule,ReactiveFormsModule} from '@angular/forms';
     HospitalModule,
     IntegrationModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+   
+   
 
   ],
   providers: [],

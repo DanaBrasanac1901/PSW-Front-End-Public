@@ -12,10 +12,10 @@ export class BloodBankService {
   constructor(private http:HttpClient, private route:ActivatedRoute) { }
   baseUrl="";
 
-  confirmNewbBoodBank(password: string, id:string):Observable<any>{
-    this.baseUrl='http://localhost:45488/api/ConfirmBBAccount/' + id;
+  confirmNewbBoodBank(password: FormData, id:string):Observable<any>{
+    this.baseUrl='https://localhost:44335/api/BloodBank/ConfirmBBAccount/' + id;
     console.log(this.baseUrl)
-    return this.http.put<any>(this.baseUrl, JSON.stringify(password));
+    return this.http.put<any>(this.baseUrl,password);
 
   }
 }
