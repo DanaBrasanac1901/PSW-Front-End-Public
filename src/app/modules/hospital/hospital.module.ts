@@ -7,12 +7,18 @@ import { CreateRoomComponent } from "./create-room/create-room.component";
 import { RoomDetailComponent } from "./room-detail/room-detail.component";
 import { RoomsComponent } from "./rooms/rooms.component";
 import { UpdateRoomComponent } from "./update-room/update-room.component";
+import { InputFeedbackComponent } from './input-feedback/input-feedback.component';
+import { PatientHomepageComponent } from './patient-homepage/patient-homepage/patient-homepage.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
 
 const routes: Routes = [
   { path: 'rooms', component: RoomsComponent },
   { path: 'rooms/add', component: CreateRoomComponent },
   { path: 'rooms/:id', component: RoomDetailComponent },  
   { path: 'rooms/:id/update', component: UpdateRoomComponent },
+
+  
 ];
 
 @NgModule({
@@ -20,15 +26,23 @@ const routes: Routes = [
     RoomsComponent,
     RoomDetailComponent,
     CreateRoomComponent,
-    UpdateRoomComponent
+    UpdateRoomComponent,
+    InputFeedbackComponent,
+    PatientHomepageComponent
+    
   ],
   imports: [
     CommonModule,
     MaterialModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    MatButtonModule,
+    MatToolbarModule
   ],
-  exports: [ RouterModule ]
+  exports: [
+    RouterModule,
+    InputFeedbackComponent
+  ]
 })
 export class HospitalModule { }

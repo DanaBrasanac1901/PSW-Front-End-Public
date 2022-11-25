@@ -1,0 +1,40 @@
+<body>
+  <form id="formlogin">
+    <table class="login_container">
+      <tr>
+        <td align="center">
+          <div class="r2">
+            <div class="slot3"><p class="credential_labels">Do you want to stay anonymous?</p></div>
+            <div class="slot4"><input type="checkbox" [(ngModel)]="feedback.anonymous" name="anonymous"></div>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td align="center">
+          <div class="r1">
+            <div class="slot1"><p class="credential_labels">Should the comment be visible to public?</p></div>
+            <div class="slot2"><input type="checkbox" [(ngModel)]="feedback.visibleToPublic" name="visibleToPublic"></div>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td class="credential_labels" align="center">Comment</td>
+      </tr>
+      <tr>
+        <td align="center">
+          <textarea class="credential_inputs" type="text" [(ngModel)]="feedback.text" name="text"></textarea>
+        </td>
+      </tr>
+
+      <tr>
+        <td align="center">
+          <button class="btn" (click)="post()">Post comment</button>
+        </td>
+      </tr>
+    </table>
+  </form>
+  <div *ngIf="display" class="box">
+    <p>Comment sent for review!</p>
+    <label for="btn" (click)="close()">Close</label>
+  </div>
+</body>

@@ -1,0 +1,31 @@
+<body>
+  <h3 class="header">Login</h3>
+    <form id="formlogin">
+      <table class="login_container">
+        <tr>
+          <td align="center">
+            <div class="row">
+                <p class="block">Email:</p>
+                <input type="text" name="email" class="block" [(ngModel)]="user.email">
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td align="center">
+            <div class="row">
+              <p class="block">Password:</p>
+              <input type="password" name="pasword" class="block" [(ngModel)]="user.password">
+            </div>
+          </td>
+        </tr>
+        
+  
+        <tr>
+          <td align="center">
+            <button class="btn" (click)="login()">Login</button>
+          </td>
+        </tr>
+      </table>
+    </form>
+  </body>
+  

@@ -40,3 +40,9 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+*.vsidx
+*.config
+.vs/PSW-Front-End-Public/v17/.suo
+*.sqlite
+.vs/PSW-Front-End-Public/FileContentIndex/read.lock
+.vs/VSWorkspaceState.json
