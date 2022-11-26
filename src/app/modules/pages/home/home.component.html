@@ -23,7 +23,6 @@
       </div>
 
       <div class="table-grid">
-        <button class="btn btn-white btn-animated" (click)="onPress()"> Leave feedback</button>
         <table class="fl-table" cellspacing="0">
           <tr>
             <th>Name</th>
@@ -37,12 +36,6 @@
 
       </div>
     </div>
-
-      <div class="input-grid">
-        <div id="comp-render" *ngIf="display" class="input-field">
-          <input-feedback></input-feedback>
-        </div>
-      </div>
 
       <div id="comp-render2" *ngIf="displayUser" class="user-menu" (mouseleave)="closeUser()">
         <ul>
