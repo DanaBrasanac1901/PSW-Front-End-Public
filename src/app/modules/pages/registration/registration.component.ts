@@ -4,6 +4,8 @@ import { RegDTO } from '../../hospital/model/regDTO.model';
 import { User } from '../../hospital/model/user.model';
 import { AuthService } from '../../hospital/services/auth.service';
 import { CredentialsService } from '../../hospital/services/credentials.service';
+import { Doctor } from '../../hospital/model/doctor.model';
+import { PatientService } from '../../hospital/services/patient.service';
 
 @Component({
   selector: 'app-registration',
@@ -20,14 +22,16 @@ export class RegistrationComponent implements OnInit {
 
   public selectedAllergies:any[]=[];
 
-  public doctors=[
-    {name:'doc1'},
-    {name:'doc2'}
-  ]
+  public doctors: Doctor[]=[];
 
-  constructor(private toast:NgToastService,private authService:AuthService) { }
+  constructor(private toast: NgToastService, private authService: AuthService, private patientService:PatientService) {
+  }
 
   ngOnInit(): void {
+    this.patientService.getDoctors().subscribe(res => {
+      this.doctors = res;
+      console.log(res);
+    });
     console.log(this.allergies);
   }
 
