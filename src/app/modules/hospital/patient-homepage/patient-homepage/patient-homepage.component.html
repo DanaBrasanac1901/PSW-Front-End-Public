@@ -5,13 +5,8 @@
   <div class="container">
 
     <div class="toolbar">
-    <mat-toolbar color="primary">
-      <span>Welcome, {{userFullName}}!</span>
-      <div class="spacer"></div>
-      <a mat-button href='/patient-home'>Home</a>
-      <a mat-button href='/' >Log Out</a>
-    </mat-toolbar>
-  </div>
+      <app-toolbar></app-toolbar>
+    </div>
   
     <div class="grid">
 
@@ -29,6 +24,9 @@
       </div>
 
       <div class="table-grid">
+
+        <button class="btn" (click)="onPress()">Input feedback</button>
+
         <table mat-table [dataSource]="dataSource"   class="fl-table">
           <ng-container matColumnDef="patientName" >
               <th mat-header-cell *matHeaderCellDef mat-sort-header class="cell-center" > Name </th>

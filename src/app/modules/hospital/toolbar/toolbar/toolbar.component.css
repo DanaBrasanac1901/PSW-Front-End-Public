@@ -1,0 +1,21 @@
+.mat-toolbar {
+    background-image: linear-gradient(to bottom, rgb(196, 196, 196), white);
+    font-family: 'Varela Round', sans-serif;
+  
+    color: rgb(31,82,109);
+    }
+    
+    .mat-button {
+      color: rgb(31,82,109);
+      font-family: 'Varela Round', sans-serif;
+  
+    }
+    
+    .spacer {
+      flex: 1 1 auto;
+    }
+    
+    .miniSpacer {
+        flex: 0.1 0.1 auto;
+      }
+    
