@@ -16,7 +16,6 @@ import { HTTP_INTERCEPTORS } from "@angular/common/http";
 
 import { MatTableModule } from '@angular/material/table'
 import { CdkTableModule } from "@angular/cdk/table";
-import { FormsModule } from '@angular/forms';
 import {NgToastModule} from 'ng-angular-popup'
 
 import { AuthInterceptor } from "./auth/auth.interceptor";
