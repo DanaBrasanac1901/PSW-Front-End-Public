@@ -3,11 +3,13 @@ export class RegDTO {
     password:string='';
     name:string='';
     surname:string='';
-    adress:string='';
+    address:string='';
     gender:string='';
     jmbg:string='';
-    role: string='';
-
+    bloodType:string='';
+    doctorId='';
+    allergies:string[]=[];
+    age:number=0;
 
   
     public constructor(obj?: any) {
@@ -18,11 +20,11 @@ export class RegDTO {
         this.name = obj.name;
         this.surname=obj.surname;
 
-        this.adress = obj.adress;
+        this.address = obj.adress;
         this.gender = obj.gender;
         this.jmbg = obj.jmbg;
 
-        this.role=obj.role;
+        this.bloodType=obj.bloodType;
 
       }
     }

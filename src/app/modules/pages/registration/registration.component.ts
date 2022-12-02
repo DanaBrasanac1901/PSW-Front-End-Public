@@ -3,7 +3,6 @@ import { NgToastService } from 'ng-angular-popup';
 import { RegDTO } from '../../hospital/model/regDTO.model';
 import { User } from '../../hospital/model/user.model';
 import { AuthService } from '../../hospital/services/auth.service';
-import { CredentialsService } from '../../hospital/services/credentials.service';
 import { Doctor } from '../../hospital/model/doctor.model';
 import { PatientService } from '../../hospital/services/patient.service';
 
@@ -19,9 +18,9 @@ export class RegistrationComponent implements OnInit {
     {name:"polen",checked:false},
     {name:"grinje",checked:false}
   ]
-
+  public bloodTypes=['A','B','AB','O'];
+  
   public selectedAllergies:any[]=[];
-
   public doctors: Doctor[]=[];
 
   constructor(private toast: NgToastService, private authService: AuthService, private patientService:PatientService) {
@@ -32,21 +31,29 @@ export class RegistrationComponent implements OnInit {
       this.doctors = res;
       console.log(res);
     });
-    console.log(this.allergies);
   }
 
   post()  {
-    
+    this.user.allergies=this.selectedAllergies;
+    console.log(this.user.bloodType);
     if(!this.checkValidity()) return;
 
-    this.authService.register(this.user).subscribe(res => {
-      this.toast.success({detail:"Succesfully registered!",summary:'Verification link was sent to your email.',duration:5000});
+    this.patientService.registerPatient(this.user)
+      .subscribe(res => {
+        this.toast.success({detail:"Added patient to db!",summary:'',duration:5000});
+    }, error=>{
+      console.log(error.message);
     });
+
+    //Logika premestena u registraciju
+    // this.authService.register(this.user).subscribe(res => {
+    //   this.toast.success({detail:"Succesfully registered!",summary:'Verification link was sent to your email.',duration:5000});
+    // });
   }
 
 
   checkValidity(){
-    if (this.user.email === '' || this.user.adress==='' || this.user.gender==='' || this.user.jmbg==='' || this.user.name==='' || this.user.password==='') {
+    if (this.user.email === '' || this.user.address==='' || this.user.gender==='' || this.user.jmbg==='' || this.user.name==='' || this.user.password==='') {
       this.toast.error({detail:'Required fields are empty!',summary:"Please complete the form.",duration:5000});
       return false;
     }

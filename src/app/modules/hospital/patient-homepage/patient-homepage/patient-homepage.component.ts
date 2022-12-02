@@ -14,7 +14,7 @@ import { User } from '../../model/user.model';
 export class PatientHomepageComponent implements OnInit {
 
   public dataSource = new MatTableDataSource<Feedback>();
-  public displayedColumns = ['id','patientId'];
+  public displayedColumns = ['patientName','comment'];
   public feedbacks: Feedback[] = [];
   public userFullName:any;
 
@@ -25,9 +25,8 @@ export class PatientHomepageComponent implements OnInit {
       this.feedbacks = res.filter(feedback => feedback.approved && feedback.visibleToPublic);
       this.dataSource.data = this.feedbacks;
     });
-    this.userFullName=localStorage.getItem('userName');
-    var userClaims=JSON.parse(localStorage.getItem('userClaims'));
-    console.log(userClaims[0]);
+    this.userFullName=localStorage.getItem('userFullName');
+    
   }
 
   patientHome(){

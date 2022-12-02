@@ -26,7 +26,7 @@
           <tr>
             <td align="center">
               <div class="row">
-                <p class="block">Full name:</p>
+                <p class="block">Name:</p>
                 <input type="text" name="name" class="block" [(ngModel)]="user.name">
               </div>
             </td>
@@ -34,8 +34,16 @@
           <tr>
             <td align="center">
               <div class="row">
+                <p class="block">Surname:</p>
+                <input type="text" name="name" class="block" [(ngModel)]="user.surname">
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td align="center">
+              <div class="row">
                 <p class="block">Address:</p>
-                <input type="text" name="adress" class="block" [(ngModel)]="user.adress">
+                <input type="text" name="adress" class="block" [(ngModel)]="user.address">
               </div>
             </td>
           </tr>
@@ -47,6 +55,15 @@
               </div>
             </td>
           </tr>
+            <tr>
+              <td align="center">
+                <div class="row">
+                  <p class="block">Age:</p>
+                  <input type="number" name="adress" class="block" [(ngModel)]="user.age">
+                </div>
+              </td>
+            </tr>
+
           <tr>
             <td align="center">
               <div class="row">
@@ -70,13 +87,23 @@
               </div>
             </td>
           </tr>
+          <tr>
+            <td align="center">
+              <div class="row">
+                <p class="block">Blood Type:</p>
+                <select [(ngModel)]="user.bloodType" name="bloodType">
+                  <option *ngFor="let type of bloodTypes">{{type}}</option>
+                </select>
+              </div>
+            </td>
+          </tr>
 
           <tr>
             <td align="center">
               <div class="row">
                 <p class="block">Choose a doctor:</p>
-                <select >
-                  <option *ngFor="let doctor of doctors">{{doctor.name}} {{doctor.surname}}</option>
+                <select [(ngModel)]="user.doctorId" name="doctorId" >
+                  <option  *ngFor="let doctor of doctors">{{doctor.name}} {{doctor.surname}}</option>
                 </select>
               </div>
             </td>

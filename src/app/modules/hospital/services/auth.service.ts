@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { shareReplay, tap } from 'rxjs/operators';
-import { CredentialsService } from './credentials.service';
 import { User } from '../model/user.model';
 import { HttpClient } from '@angular/common/http';
 import * as moment from "moment";
@@ -15,7 +14,7 @@ export class AuthService {
     apiHost: string = 'http://localhost:16177/';
     headers: HttpHeaders = new HttpHeaders({ 'Content-Type': 'application/json' });
 
-    constructor(private http: HttpClient, private credentialsService:CredentialsService) {
+    constructor(private http: HttpClient) {
     }
       
     login(user:User ): Observable<any> {

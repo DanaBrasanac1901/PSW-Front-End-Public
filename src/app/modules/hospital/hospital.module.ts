@@ -11,6 +11,7 @@ import { InputFeedbackComponent } from './input-feedback/input-feedback.componen
 import { PatientHomepageComponent } from './patient-homepage/patient-homepage/patient-homepage.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
+import { AppointmentViewComponent } from './appointment-view/appointment-view.component';
 
 const routes: Routes = [
   { path: 'rooms', component: RoomsComponent },
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: 'rooms/:id', component: RoomDetailComponent },  
   { path: 'rooms/:id/update', component: UpdateRoomComponent },
 
+  {path: 'appt-view', component: AppointmentViewComponent}
   
 ];
 
@@ -28,7 +30,8 @@ const routes: Routes = [
     CreateRoomComponent,
     UpdateRoomComponent,
     InputFeedbackComponent,
-    PatientHomepageComponent
+    PatientHomepageComponent,
+    AppointmentViewComponent
     
   ],
   imports: [

@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { NgToastService } from 'ng-angular-popup';
 import { User } from 'src/app/modules/hospital/model/user.model';
 import { AuthService } from 'src/app/modules/hospital/services/auth.service';
-import { CredentialsService } from 'src/app/modules/hospital/services/credentials.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -28,7 +27,6 @@ export class LoginComponent implements OnInit {
       .login(this.user)
       .subscribe(response => {
         
-        localStorage.setItem('userClaims', response.claims);
         localStorage.setItem('userId', response.claims[0].value);
         localStorage.setItem('userFullName', response.claims[2].value+' '+response.claims[3].value);
         this.router.navigate(['/patient-home']);

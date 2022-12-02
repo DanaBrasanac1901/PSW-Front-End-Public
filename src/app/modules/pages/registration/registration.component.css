@@ -26,14 +26,14 @@ body {
 .login_container {
   margin-left:20%;
   border-radius: 15px;
-  width: 55%;
+  width: 65%;
   height: 50%;
   background-color: rgb(31,82,109);
   background-image: linear-gradient(to right, rgb(127, 175, 201), rgb(40, 103, 136));
   border: 2px solid;
   border-color: rgb(217, 214, 211);
   color: rgb(255, 255, 255);
-  line-height: 4em;
+  line-height: 2.7em;
 }
 
 .credential_labels {

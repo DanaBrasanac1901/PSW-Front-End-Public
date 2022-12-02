@@ -16,7 +16,7 @@ declare function toast(s:string):any;
 export class HomeComponent implements OnInit {
 
   public dataSource = new MatTableDataSource<Feedback>();
-  public displayedColumns = ['id','patientId'];
+  public displayedColumns = ['patientName','comment'];
   public feedbacks: Feedback[] = [];
 
   constructor(private feedbackService: FeedbackService, private router: Router, private toast:NgToastService) {}
@@ -51,5 +51,6 @@ export class HomeComponent implements OnInit {
   signUp(){
     this.router.navigate(['/register']);
   }
+
 
 }
