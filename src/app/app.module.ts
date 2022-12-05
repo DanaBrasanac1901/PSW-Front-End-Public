@@ -17,7 +17,7 @@ import { HTTP_INTERCEPTORS } from "@angular/common/http";
 import { MatTableModule } from '@angular/material/table'
 import { CdkTableModule } from "@angular/cdk/table";
 import {NgToastModule} from 'ng-angular-popup'
-
+import { RoleGuardService } from "src/app/auth/role-guard.service";
 import { AuthInterceptor } from "./auth/auth.interceptor";
 
 
@@ -50,7 +50,8 @@ import { AuthInterceptor } from "./auth/auth.interceptor";
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
       multi: true
-    }
+    },
+    RoleGuardService
   ],
 
   bootstrap: [AppComponent]

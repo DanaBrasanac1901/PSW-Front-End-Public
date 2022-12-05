@@ -9,9 +9,12 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { AppointmentViewComponent } from './appointment-view/appointment-view.component';
 import { ToolbarComponent } from './toolbar/toolbar/toolbar.component';
+import { RoleGuardService } from 'src/app/auth/role-guard.service';
 
 const routes: Routes = [
-  {path: 'appt-view', component: AppointmentViewComponent}
+  { path: 'appt-view', component: AppointmentViewComponent, canActivate: [RoleGuardService],
+    data: { expectedRole: 'PATIENT' }
+  }
   
 ];
 
