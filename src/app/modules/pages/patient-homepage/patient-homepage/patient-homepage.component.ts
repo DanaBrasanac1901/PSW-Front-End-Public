@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from '../../services/auth.service';
+import { AuthService } from 'src/app/modules/hospital/services/auth.service';
 import { MatTableDataSource } from '@angular/material/table';
-import { Feedback } from '../../model/feedback.model';
-import { FeedbackService } from '../../services/feedback.service';
-import { User } from '../../model/user.model';
+import { Feedback } from 'src/app/modules/hospital/model/feedback.model';
+import { FeedbackService } from 'src/app/modules/hospital/services/feedback.service';
+import { User } from 'src/app/modules/hospital/model/user.model';
 
 @Component({
   selector: 'app-patient-homepage',
@@ -25,17 +25,10 @@ export class PatientHomepageComponent implements OnInit {
       this.feedbacks = res.filter(feedback => feedback.approved && feedback.visibleToPublic);
       this.dataSource.data = this.feedbacks;
     });
-    this.userFullName=localStorage.getItem('userFullName');
+    this.userFullName=this.authService.getName();
     
   }
 
-  patientHome(){
-    this.router.navigate(['/patient-home']);
-  }
-
-  logOut(){
-    this.authService.logout();
-  }
   display = false;
   onPress() {
     this.display = !this.display;

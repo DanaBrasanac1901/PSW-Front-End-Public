@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
-import { shareReplay, tap } from 'rxjs/operators';
 import { User } from '../model/user.model';
 import { HttpClient } from '@angular/common/http';
-import * as moment from "moment";
 import { Observable } from 'rxjs';
 import { HttpHeaders } from '@angular/common/http';
 import { RegDTO } from '../model/regDTO.model';
@@ -18,13 +16,7 @@ export class AuthService {
     }
       
     login(user:User ): Observable<any> {
-        var logRes=this.http.post<any>(this.apiHost + 'api/Credentials/login', user, { headers: this.headers });
-        
-        this.setSession(logRes);
-        logRes.pipe(
-            shareReplay());
-        
-        return logRes;
+        return this.http.post<any>(this.apiHost + 'api/Credentials/login', user, { headers: this.headers });
     }
    
     register(user:RegDTO): Observable<any> {
@@ -32,24 +24,22 @@ export class AuthService {
     }
 
 
-    public setSession(authResult) {
-        const expiresAt = moment().add(authResult.expiresIn,'second');
-      //ovo samo treba da se proveri da li funkcionise
-        //localStorage.setItem('currentUser', JSON.stringify(authResult));
-        localStorage.setItem('userId', authResult.claims[0].value);
-        localStorage.setItem('userFullName', authResult.claims[2].value + ' ' + authResult.claims[3].value);
-        localStorage.setItem('id_token', authResult.idToken);
-        localStorage.setItem("expires_at", JSON.stringify(expiresAt.valueOf()) );
-    }          
+  public setSession(token) {
+    //localStorage.setItem('currentUser', JSON.stringify(token));
+    localStorage.setItem('role', token.claims[5].value);
+    localStorage.setItem('userId', token.claims[0].value);
+    localStorage.setItem('idByRole', token.claims[1].value);
+    localStorage.setItem('fullName', token.claims[3].value + ' ' + token.claims[4].value);
+    localStorage.setItem("expires_at", token.validTo);
+  }
 
     logout() {
-        console.log("usao u logout");
-        localStorage.removeItem("id_token");
-        localStorage.removeItem("expires_at");
+      localStorage.clear();
     }
 
     public isLoggedIn() {
-        return moment().isBefore(this.getExpiration());
+      var currentDateTime = new Date().toISOString();
+      return currentDateTime < this.getExpiration();
     }
 
     isLoggedOut() {
@@ -57,8 +47,23 @@ export class AuthService {
     }
 
     getExpiration() {
-        const expiration = localStorage.getItem("expires_at");
-        const expiresAt = JSON.parse(expiration);
-        return moment(expiresAt);
+      return localStorage.getItem("expires_at");
     }
-}
+
+    getRole() {
+    return localStorage.getItem("role");
+    }
+
+    getIdByRole() {
+      return localStorage.getItem("idByRole");
+    }
+
+    getUserId() {
+      return localStorage.getItem("userId");
+    }
+
+    getName() {
+      return localStorage.getItem("fullName");
+    }
+  }
+

@@ -1,28 +1,30 @@
 <body>
 
-<app-toolbar></app-toolbar>
+  <!---
+    <app-toolbar></app-toolbar>
 
-<button class="btn" (click)="openSchedule()">Schedule an appointment</button>
-<div class="tablePosition">
-<table mat-table [dataSource]="dataSource"   class="fl-table">
-    <ng-container matColumnDef="doctorName" >
-        <th mat-header-cell *matHeaderCellDef mat-sort-header class="cell-center" > Doctor </th>
-        <td mat-cell *matCellDef="let appointment" class="clickable cell-center" >{{appointment.doctorName}}</td>
-    </ng-container>
-    <ng-container matColumnDef="date">
+    -->
+  <button class="btn" (click)="openSchedule()">Schedule an appointment</button>
+  <div class="tablePosition">
+    <table mat-table [dataSource]="dataSource" class="fl-table">
+      <ng-container matColumnDef="doctorName">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header class="cell-center"> Doctor </th>
+        <td mat-cell *matCellDef="let appointment" class="clickable cell-center">{{appointment.doctorName}}</td>
+      </ng-container>
+      <ng-container matColumnDef="date">
         <th mat-header-cell *matHeaderCellDef mat-sort-header class="cell-center"> Date </th>
         <td mat-cell *matCellDef="let appointment" class="cell-center">{{appointment.startDate}}</td>
-    </ng-container>
-    <ng-container matColumnDef="time">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header class="cell-center"> Time </th>
-      <td mat-cell *matCellDef="let appointment" class="cell-center">{{appointment.startTime}}</td>
-   </ng-container>
-   <ng-container matColumnDef="room">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header class="cell-center"> Room </th>
-    <td mat-cell *matCellDef="let appointment" class="cell-center">{{appointment.roomNumber}}</td>
-  </ng-container>
-    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-</table>
-</div>
+      </ng-container>
+      <ng-container matColumnDef="time">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header class="cell-center"> Time </th>
+        <td mat-cell *matCellDef="let appointment" class="cell-center">{{appointment.startTime}}</td>
+      </ng-container>
+      <ng-container matColumnDef="room">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header class="cell-center"> Room </th>
+        <td mat-cell *matCellDef="let appointment" class="cell-center">{{appointment.roomNumber}}</td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
 </body>

@@ -1,12 +1,18 @@
 <script src="js/toast.js"></script>
 
 <body>
+
   <div class="container">
-    <div class="toolbar">
-      <div class="nameToolbar-grid">HealthcareMD</div>
-      <div class="logo-grid"></div>
-      <button class="user-grid" (mouseenter)="openUser()" ></button>
-    </div>
+    <!---
+
+     <div class="toolbar">
+  <div class="nameToolbar-grid">HealthcareMD</div>
+  <div class="logo-grid"></div>
+  <button class="user-grid" (mouseenter)="openUser()" ></button>
+  </div>
+
+     -->
+ 
     <div class="grid">
 
       <div class="header-grid">
@@ -23,30 +29,30 @@
       </div>
 
       <div class="table-grid">
-        <table mat-table [dataSource]="dataSource"   class="fl-table">
-          <ng-container matColumnDef="patientName" >
-              <th mat-header-cell *matHeaderCellDef mat-sort-header class="cell-center" > Name </th>
-              <td mat-cell *matCellDef="let feedback" class="clickable cell-center" >{{feedback.patientId}}</td>
+        <table mat-table [dataSource]="dataSource" class="fl-table">
+          <ng-container matColumnDef="patientName">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header class="cell-center"> Name </th>
+            <td mat-cell *matCellDef="let feedback" class="clickable cell-center">{{feedback.patientId}}</td>
           </ng-container>
           <ng-container matColumnDef="comment">
-              <th mat-header-cell *matHeaderCellDef mat-sort-header class="cell-center"> Comment </th>
-              <td mat-cell *matCellDef="let feedback" class="cell-center">{{feedback.text}}</td>
+            <th mat-header-cell *matHeaderCellDef mat-sort-header class="cell-center"> Comment </th>
+            <td mat-cell *matCellDef="let feedback" class="cell-center">{{feedback.text}}</td>
           </ng-container>
-          
+
           <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
           <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-      </table>
+        </table>
 
       </div>
     </div>
 
-      <div id="comp-render2" *ngIf="displayUser" class="user-menu" (mouseleave)="closeUser()">
-        <ul>
-          <li (click)= "signIn()" style="border-bottom: 1px solid rgb(94,111,120);">Sign in</li>
-          <li (click)= "signUp()">Sign up</li>
-        </ul>
-      </div>
-    
+    <div id="comp-render2" *ngIf="displayUser" class="user-menu" (mouseleave)="closeUser()">
+      <ul>
+        <li (click)="signIn()" style="border-bottom: 1px solid rgb(94,111,120);">Sign in</li>
+        <li (click)="signUp()">Sign up</li>
+      </ul>
+    </div>
+
   </div>
 
   

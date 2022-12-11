@@ -20,17 +20,18 @@ export class LoginComponent implements OnInit {
   }
 
   login(){
-    if(!this.checkValidity()) return;
+    if (!this.checkValidity()) return;
 
-    this.user.role='PATIENT';
     this.authService
       .login(this.user)
       .subscribe(response => {
         this.authService.setSession(response);
-        
-        localStorage.setItem('userId', response.claims[0].value);
-        localStorage.setItem('userFullName', response.claims[3].value+' '+response.claims[4].value);
-        this.router.navigate(['/patient-home']);
+        let role = this.authService.getRole();
+        if (role === 'PATIENT') {
+          this.router.navigate(['/patient-home']);
+        } else {
+          this.toast.error({ detail: 'There is no patient with this info!', summary: "Please try again.", duration: 5000 });
+        }
       },
       error=>{
         this.toast.error({ detail: 'Incorrect email or password!', summary: "Please try again.", duration:5000});

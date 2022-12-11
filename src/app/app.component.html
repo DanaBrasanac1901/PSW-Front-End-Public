@@ -2,6 +2,9 @@
   <head>
   </head>
   <body>
+    <div *ngIf="patient">
+      <app-toolbar></app-toolbar>
+    </div>
     <router-outlet></router-outlet>
     <lib-ng-toast></lib-ng-toast>
   </body>

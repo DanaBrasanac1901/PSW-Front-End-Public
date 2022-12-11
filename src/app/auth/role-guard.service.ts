@@ -2,8 +2,6 @@ import { Injectable } from '@angular/core';
 import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AuthService } from '../modules/hospital/services/auth.service';
-import decode from 'jwt-decode';
-//npm install--save jwt - decode
 
 
 @Injectable()
@@ -16,10 +14,9 @@ export class RoleGuardService implements CanActivate {
 
     const expectedRole = 'PATIENT';
     const tokenRole = localStorage.getItem('role');
-    //kad sredimo expiration stavicu i uslov za istek tokena
-    //if (!this.auth.isLoggedIn() )
-
-    if (tokenRole !== expectedRole) {
+   
+    if (tokenRole !== expectedRole || !this.auth.isLoggedIn()) {
+      this.auth.logout();
       this.router.navigate(['login']);
       return false;
     }
