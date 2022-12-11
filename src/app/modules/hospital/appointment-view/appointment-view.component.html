@@ -19,7 +19,7 @@
    </ng-container>
    <ng-container matColumnDef="room">
     <th mat-header-cell *matHeaderCellDef mat-sort-header class="cell-center"> Room </th>
-    <td mat-cell *matCellDef="let appointment" class="cell-center">{{appointment.roomNumber}}</td>
+    <td mat-cell *matCellDef="let appointment" class="cell-center">{{appointment.roomId}}</td>
   </ng-container>
     <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>

@@ -20,7 +20,7 @@ export class AuthService {
     login(user:User ): Observable<any> {
         var logRes=this.http.post<any>(this.apiHost + 'api/Credentials/login', user, { headers: this.headers });
         
-        this.setSession(logRes);
+        //this.setSession(logRes);
         logRes.pipe(
             shareReplay());
         

@@ -2,7 +2,7 @@
 <app-toolbar></app-toolbar>
 <body>
     <form id="formlogin">
-      <table class="login_container" *ngIf="!withPriority">
+      <table class="login_container" *ngIf="!showTable">
         
           <tr>
             <td align="center">
@@ -55,7 +55,7 @@
           </tr>
     </table>
 
-    <table class="container2" *ngIf="withPriority" >
+    <table class="container2" *ngIf="showTable" >
         <table mat-table [dataSource]="dataSource"   class="fl-table">
             <ng-container matColumnDef="doctorName" >
                 <th mat-header-cell *matHeaderCellDef mat-sort-header class="cell-center" > Doctor </th>
@@ -71,7 +71,7 @@
            </ng-container>
            <ng-container matColumnDef="room">
             <th mat-header-cell *matHeaderCellDef mat-sort-header class="cell-center"> Room </th>
-            <td mat-cell *matCellDef="let appointment" class="cell-center">{{appointment.roomNumber}}</td>
+            <td mat-cell *matCellDef="let appointment" class="cell-center">{{appointment.roomId}}</td>
           </ng-container>
             <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
             <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="selectAppointment(row)"></tr>

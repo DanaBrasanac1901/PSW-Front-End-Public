@@ -13,9 +13,8 @@ import { SheduleAppointmentComponent } from './schedule-appointment/shedule-appo
 import { RoleGuardService } from 'src/app/auth/role-guard.service';
 
 const routes: Routes = [
-  { path: 'appt-view', component: AppointmentViewComponent, canActivate: [RoleGuardService],
-    data: { expectedRole: 'PATIENT' }
-  },
+  { path: 'appt-view', component: AppointmentViewComponent}
+  ,
   {path: 'schedule-appointment', component: SheduleAppointmentComponent}
   
 ];

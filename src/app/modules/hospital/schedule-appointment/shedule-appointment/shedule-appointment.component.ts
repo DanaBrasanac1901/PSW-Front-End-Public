@@ -25,7 +25,9 @@ export class SheduleAppointmentComponent implements OnInit {
   public selectedSpecialty='';
   public doctorPriority=false;
   public datePriority=false;
-  withPriority=false;
+  showTable=false;
+
+  public selectedAppt;
 
   constructor(private toast:NgToastService, private doctorService:DoctorService,private apptService:AppointmentService) { }
 
@@ -39,33 +41,48 @@ export class SheduleAppointmentComponent implements OnInit {
       this.appointments=res;
       this.dataSource.data=this.appointments;
     });
-    this.withPriority=true;
+
+    if (this.appointments.length===0 || this.appointments===undefined){
+      console.log("nema idealnih");
+      if (this.doctorPriority) this.getByDoctor();
+      else this.getByDate();
+    }
+    this.showTable=true;
     
   }
 
   getByDoctor() {
-    this.withPriority=true;
-
+    
   }
 
   getByDate(){
-    this.withPriority=true;
-
+    
   }
 
   send(){
-    console.log(this.appointment.startDate);
-
-
-    if(this.doctorPriority || this.datePriority){
-      this.toast.success({detail:"Ideal case!",duration:5000,summary:''});
-      console.log(this.appointment.doctorId);
+    if (this.checkParameters()) {
+      this.appointment.patientId=localStorage.getItem('patientId');
       this.tryIdeal();
-    } else {
-      this.toast.error({detail:"Please choose the priority!",duration:5000,summary:''});
-      return;
+
     }
-    
+    else this.toast.error({detail:"Please fill the entire form!",duration:5000,summary:''});    
+  }
+
+  checkParameters(): boolean{
+    if (this.appointment.doctorId===undefined || this.appointment.doctorId==='') {
+      console.log("puca doktor");
+      return false;
+    }
+    if (this.appointment.startDate===undefined || this.appointment.startDate==='') {
+      console.log("puca datum");
+      return false;
+    }
+    if (!this.doctorPriority && !this.datePriority) {
+      console.log("puca prioritet");
+      return false;
+    }
+
+    return true;
   }
 
   loadSpecialty(){
@@ -75,15 +92,15 @@ export class SheduleAppointmentComponent implements OnInit {
       });
     } else this.doctors=[];
   }
-  changedDoctor(selectedDoctor) {
-    console.log(selectedDoctor)
-  }
 
   selectAppointment(appt:any){
+    this.selectedAppt=appt;
     console.log(appt);
   }
 
   schedule(){
-
+    this.apptService.scheduleAppointment(this.selectedAppt).subscribe(res => {
+      console.log(res);
+    });
   }
 }

@@ -20,10 +20,7 @@ export class AppointmentViewComponent implements OnInit {
   constructor(private appointmentService: AppointmentService, private router:Router) { }
 
   ngOnInit(): void {
-
-    this.temp.doctorName=localStorage.getItem('userId'); //This is only made as a way to force Swagger to recognize the model for the dto
-                                                        // In reality it SHOULD just send the patientId and not the empty appt but this is the only way i can resolve it currently
-    this.appointmentService.getAppointments(this.temp).subscribe(res => {
+    this.appointmentService.getAppointments(localStorage.getItem('patientId')).subscribe(res => {
       console.log(res);
       this.appointments=res;
       this.dataSource.data = this.appointments;
