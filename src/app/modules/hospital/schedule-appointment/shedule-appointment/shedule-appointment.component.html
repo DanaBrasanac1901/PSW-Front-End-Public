@@ -4,80 +4,89 @@
 -->
 
 <body>
-  <form id="formlogin">
-    <table class="login_container" *ngIf="!withPriority">
-
-      <tr>
-        <td align="center">
-          <div class="row">
-            <p class="block">Choose the specialty:</p>
-            <select [(ngModel)]="selectedSpecialty" on-click="loadSpecialty()" name="specialty">
-              <option *ngFor="let specialty of specialties">{{specialty}}</option>
-            </select>
-          </div>
-        </td>
-      </tr>
-      <tr>
-        <td align="center">
-          <div class="row">
-            <p class="block">Choose a doctor:</p>
-            <select [(ngModel)]="appointment.doctorId" name="selectedDoctor" id="selectedDoctor">
-              <option selected disabled hidden>Pick a doctor</option>
-              <option *ngFor="let doctor of doctors" [ngValue]="doctor.id">{{doctor.name}} {{doctor.surname}}</option>
-            </select>
-          </div>
-        </td>
-      </tr>
-      <tr>
-        <td align="center">
-          <div class="row">
-            <p class="block">Choose the date:</p>
-            <input type="date" [(ngModel)]="appointment.startDate" name="date">
-          </div>
-        </td>
-      </tr>
-      <tr>
-        <td align="center">
-          <p style="color:white;margin-left: 5%; width: 100%;">If the request is not possible, which has priority:</p>
-        </td>
-      </tr>
-      <tr>
-        <td align="center">
-          <div style="color:white;margin-left:5%">
-            <input type="radio" name="priority" id="doctor" (click)="doctorPriority=true">
-            <label for="doctor">Doctor</label>
-            <input type="radio" name="priority" id="date" (click)="datePriority=true">
-            <label for="date">Date</label>
-          </div>
-        </td>
-      </tr>
-      <tr>
-        <td align="center">
-          <button class="btn" (click)="send()">Get appointment options</button>
-        </td>
-      </tr>
+    <form id="formlogin">
+      <table class="login_container" *ngIf="!showTable">
+        
+          <tr>
+            <td align="center">
+                  <div class="row">
+                      <p class="block">Choose the specialty:</p>
+                      <select [(ngModel)]="selectedSpecialty" on-click="loadSpecialty()" name="specialty" >
+                        <option  *ngFor="let specialty of specialties">{{specialty}}</option>
+                      </select>
+                    </div>
+            </td>
+          </tr>
+        <tr>
+          <td align="center">
+                <div class="row">
+                    <p class="block">Choose a doctor:</p>
+                    <select [(ngModel)]="appointment.doctorId" name="selectedDoctor" id="selectedDoctor" >
+                      <option selected disabled hidden>Pick a doctor</option>
+                      <option  *ngFor="let doctor of doctors" [ngValue]="doctor.id">{{doctor.name}} {{doctor.surname}}</option>
+                    </select>
+                  </div>
+          </td>
+        </tr>
+        <tr>
+            <td align="center">
+                  <div class="row">
+                      <p class="block">Choose the date:</p>
+                      <input type="date" [(ngModel)]="appointment.startDate" name="date">
+                    </div>
+            </td>
+        </tr>
+        <tr>
+            <td align="center">
+                <p style="color:white;margin-left: 5%; width: 100%;">If the request is not possible, which has priority:</p>
+            </td>
+          </tr>
+          <tr>
+            <td align="center">
+                <div style="color:white;margin-left:5%">
+                  <input type="radio" name="priority" id="doctor" (click)="doctorPriority=true">
+                  <label for="doctor">Doctor</label>
+                  <input type="radio" name="priority" id="date" (click)="datePriority=true">
+                  <label for="date">Date</label>
+                </div>
+            </td>
+          </tr>
+          <tr>
+            <td align="center">
+              <button class="btn" (click)="send()">Get appointment options</button>
+            </td>
+          </tr>
     </table>
 
-    <table class="container2" *ngIf="withPriority">
-      <table mat-table [dataSource]="dataSource" class="fl-table">
-        <ng-container matColumnDef="doctorName">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header class="cell-center"> Doctor </th>
-          <td mat-cell *matCellDef="let appointment" class="clickable cell-center">{{appointment.doctorName}}</td>
-        </ng-container>
-        <ng-container matColumnDef="date">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header class="cell-center"> Date </th>
-          <td mat-cell *matCellDef="let appointment" class="cell-center">{{appointment.startDate}}</td>
-        </ng-container>
-        <ng-container matColumnDef="time">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header class="cell-center"> Time </th>
-          <td mat-cell *matCellDef="let appointment" class="cell-center">{{appointment.startTime}}</td>
-        </ng-container>
-        <ng-container matColumnDef="room">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header class="cell-center"> Room </th>
-          <td mat-cell *matCellDef="let appointment" class="cell-center">{{appointment.roomNumber}}</td>
-        </ng-container>
-        <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="selectAppointment(row)"></tr>
+    <table class="container2" *ngIf="showTable" >
+        <table mat-table [dataSource]="dataSource"   class="fl-table">
+            <ng-container matColumnDef="doctorName" >
+                <th mat-header-cell *matHeaderCellDef mat-sort-header class="cell-center" > Doctor </th>
+                <td mat-cell *matCellDef="let appointment" class="clickable cell-center" >{{appointment.doctorName}}</td>
+            </ng-container>
+            <ng-container matColumnDef="date">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header class="cell-center"> Date </th>
+                <td mat-cell *matCellDef="let appointment" class="cell-center">{{appointment.startDate}}</td>
+            </ng-container>
+            <ng-container matColumnDef="time">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header class="cell-center"> Time </th>
+              <td mat-cell *matCellDef="let appointment" class="cell-center">{{appointment.startTime}}</td>
+           </ng-container>
+           <ng-container matColumnDef="room">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header class="cell-center"> Room </th>
+            <td mat-cell *matCellDef="let appointment" class="cell-center">{{appointment.roomId}}</td>
+          </ng-container>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="selectAppointment(row)"></tr>
+        </table>
+    
+       
+  
+        <tr>
+          <td align="center">
+            <button class="btn" (click)="schedule()">Schedule appointment</button>
+          </td>
+        </tr>
       </table>
 
 
