@@ -2,6 +2,7 @@
 
 <app-toolbar></app-toolbar>
 
+<button class="btn" (click)="openSchedule()">Schedule an appointment</button>
 <div class="tablePosition">
 <table mat-table [dataSource]="dataSource"   class="fl-table">
     <ng-container matColumnDef="doctorName" >

@@ -27,6 +27,9 @@ export class LoginComponent implements OnInit {
       .login(this.user)
       .subscribe(response => {
         this.authService.setSession(response);
+        
+        localStorage.setItem('userId', response.claims[0].value);
+        localStorage.setItem('userFullName', response.claims[3].value+' '+response.claims[4].value);
         this.router.navigate(['/patient-home']);
       },
       error=>{

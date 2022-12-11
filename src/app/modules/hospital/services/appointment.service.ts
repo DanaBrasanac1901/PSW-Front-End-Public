@@ -17,4 +17,8 @@ export class AppointmentService {
     // This SHOULD be just a get, but since swagger is being a bastard i have to do it this way
     return this.http.post<Appointment[]>(this.apiHost + 'api/Appointments/patient',appt, { headers: this.headers });
   }
+
+  getIdealAppointment(appt: Appointment): Observable<any> {
+    return this.http.post<any>(this.apiHost + 'api/Appointments/regularAppointments/', appt, { headers: this.headers });
+  }
 }

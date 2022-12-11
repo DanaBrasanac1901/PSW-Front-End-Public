@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { Appointment } from '../model/appointment.model';
 import { AppointmentService } from '../services/appointment.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-appointment-view',
@@ -16,7 +17,7 @@ export class AppointmentViewComponent implements OnInit {
 
   public temp: Appointment=new Appointment;
 
-  constructor(private appointmentService: AppointmentService) { }
+  constructor(private appointmentService: AppointmentService, private router:Router) { }
 
   ngOnInit(): void {
 
@@ -27,6 +28,10 @@ export class AppointmentViewComponent implements OnInit {
       this.appointments=res;
       this.dataSource.data = this.appointments;
     });
+  }
+
+  openSchedule(){
+    this.router.navigate(["/schedule-appointment"]);
   }
 
 }

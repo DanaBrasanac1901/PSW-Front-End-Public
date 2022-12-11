@@ -3,6 +3,7 @@ export class Appointment {
     startDate: string='';
     startTime: string='';
     roomNumber: string='';
+    doctorId:string='';
   
     public constructor(obj?: any) {
       if (obj) {
@@ -10,6 +11,7 @@ export class Appointment {
         this.startDate=obj.date;
         this.startTime=obj.time;
         this.roomNumber=obj.room;
+        this.doctorId=obj.doctorId;
       }
     }
   }

@@ -1,8 +1,8 @@
 export class Doctor {
-  id: number = 0;
+  id: string = '';
   name: string = '';
   surname: string = '';
-
+  specialty:string='';
 
   public constructor(obj?: any) {
     if (obj) {
