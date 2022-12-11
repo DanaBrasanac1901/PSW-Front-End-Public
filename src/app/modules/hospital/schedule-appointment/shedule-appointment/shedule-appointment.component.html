@@ -56,9 +56,9 @@
               <button class="btn" (click)="send()">Get appointment options</button>
             </td>
           </tr>
-    </table>
+      </table>
 
-    <table class="container2" *ngIf="showTable" >
+      <table class="container2" *ngIf="showTable" >
         <table mat-table [dataSource]="dataSource"   class="fl-table">
             <ng-container matColumnDef="doctorName" >
                 <th mat-header-cell *matHeaderCellDef mat-sort-header class="cell-center" > Doctor </th>
@@ -79,23 +79,19 @@
             <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
             <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="selectAppointment(row)"></tr>
         </table>
-    
-       
-  
+ 
         <tr>
           <td align="center">
             <button class="btn" (click)="schedule()">Schedule appointment</button>
           </td>
         </tr>
-      </table>
 
-
-
-      <tr>
+        <tr>
         <td align="center">
           <button class="btn" (click)="schedule()">Schedule appointment</button>
         </td>
-      </tr>
+        </tr>
+
     </table>
   </form>
 </body>
