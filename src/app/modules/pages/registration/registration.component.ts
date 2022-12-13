@@ -29,15 +29,15 @@ export class RegistrationComponent implements OnInit {
   ngOnInit(): void {
     this.patientService.getDoctors().subscribe(res => {
       this.doctors = res;
-      console.log(res);
+     // console.log(res);
     });
   }
 
   post()  {
     this.user.allergies=this.selectedAllergies;
-    console.log(this.user.bloodType);
+    
     if(!this.checkValidity()) return;
-
+    console.log("validno je");
     this.patientService.registerPatient(this.user)
       .subscribe(res => {
         this.toast.success({detail:"Added patient to db!",summary:'',duration:5000});
@@ -85,7 +85,7 @@ export class RegistrationComponent implements OnInit {
 
   addAllergies(){
     this.selectedAllergies=this.allergies.filter(allergy=>allergy.checked);
-    console.log(this.selectedAllergies);
+    //console.log(this.selectedAllergies);
   }
 
 }

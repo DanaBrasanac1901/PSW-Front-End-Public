@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
         this.authService.setSession(response);
         let role = this.authService.getRole();
         if (role === 'PATIENT') {
-          this.router.navigate(['/patient-home']);
+          this.router.navigate(['/home']);
         } else {
           this.toast.error({ detail: 'There is no patient with this info!', summary: "Please try again.", duration: 5000 });
         }
