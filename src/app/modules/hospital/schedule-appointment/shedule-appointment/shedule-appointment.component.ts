@@ -40,10 +40,10 @@ export class SheduleAppointmentComponent implements OnInit {
     this.apptService.getIdealAppointment(this.appointment).subscribe(res => {
       this.appointments=res;
       this.dataSource.data=this.appointments;
-      this.toast.success({detail:"Good news! The doctor is available on that date.",duration:5000,summary:'Please choose one of the available options.'});
+      this.toast.success({detail:"Good news! The doctor is available on that date.",duration:2000,summary:''});
     },
       error=>{
-        this.toast.error({detail:"Unfortunately, the requested appointment is unavailable.",duration:5000,summary:'Please choose one of the available options.'});
+        this.toast.error({detail:"Requested appointment is unavailable! Choose an available option.",duration:2000,summary:''});
         if (this.doctorPriority) this.getByDoctor();
         else this.getByDate();
       });
@@ -71,7 +71,7 @@ export class SheduleAppointmentComponent implements OnInit {
       this.tryIdeal();
 
     }
-    else this.toast.error({detail:"Please fill the entire form!",duration:5000,summary:''});    
+    else this.toast.error({detail:"Please fill the entire form!",duration:2000,summary:''});    
   }
 
   checkParameters(): boolean{
@@ -101,11 +101,11 @@ export class SheduleAppointmentComponent implements OnInit {
   schedule(){
     this.selectedAppt.patientId=localStorage.getItem('idByRole');
     this.apptService.scheduleAppointment(this.selectedAppt).subscribe(res => {
-      this.toast.success({detail:"Your appointment was scheduled!",duration:5000,summary:''});
+      this.toast.success({detail:"Your appointment was scheduled!",duration:3000,summary:''});
       this.router.navigate(['/appt-view']);
     },
      error =>{
-      this.toast.error({detail:"Something went wrong!",duration:5000,summary:'Please try again.'});   
+      this.toast.error({detail:"Something went wrong!",duration:3000,summary:'Please try again.'});   
      });
   }
 }

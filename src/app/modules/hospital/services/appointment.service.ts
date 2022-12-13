@@ -18,14 +18,14 @@ export class AppointmentService {
   }
 
   getIdealAppointment(appt: any): Observable<any> {
-    return this.http.post<Appointment[]>(this.apiHost + 'api/Appointments/regularAppointments', appt, { headers: this.headers });
+    return this.http.post<Appointment[]>(this.apiHost + 'api/Appointments/patient/regularAppointments', appt, { headers: this.headers });
   }
 
   getWithPriority(priority: string,appt:Appointment): Observable<any> {
-    return this.http.post<Appointment[]>(this.apiHost + 'api/Appointments/suggestions/'+priority,appt, { headers: this.headers });
+    return this.http.post<Appointment[]>(this.apiHost + 'api/Appointments/patient/suggestions/'+priority,appt, { headers: this.headers });
   }
 
   scheduleAppointment(appt:any): any {
-    return this.http.post<any>(this.apiHost + 'api/Appointments/patientSchedule',appt,{ headers: this.headers });
+    return this.http.post<any>(this.apiHost + 'api/Appointments/patient/schedule',appt,{ headers: this.headers });
   }
 }
