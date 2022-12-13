@@ -5,6 +5,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { NgToastService } from 'ng-angular-popup';
 import { DoctorService } from '../../services/doctor.service';
 import { AppointmentService } from '../../services/appointment.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-shedule-appointment',
@@ -29,7 +30,7 @@ export class SheduleAppointmentComponent implements OnInit {
 
   public selectedAppt;
 
-  constructor(private toast:NgToastService, private doctorService:DoctorService,private apptService:AppointmentService) { }
+  constructor(private toast:NgToastService, private doctorService:DoctorService,private apptService:AppointmentService, private router: Router) { }
 
   ngOnInit(): void {
 
@@ -37,23 +38,21 @@ export class SheduleAppointmentComponent implements OnInit {
 
   tryIdeal(){
     this.apptService.getIdealAppointment(this.appointment).subscribe(res => {
-      console.log(res);
       this.appointments=res;
       this.dataSource.data=this.appointments;
-    });
-
-    if (this.appointments.length===0 || this.appointments===undefined){
-      console.log("nema idealnih");
-      if (this.doctorPriority) this.getByDoctor();
-      else this.getByDate();
-    }
+      this.toast.success({detail:"Good news! The doctor is available on that date.",duration:5000,summary:'Please choose one of the available options.'});
+    },
+      error=>{
+        this.toast.error({detail:"Unfortunately, the requested appointment is unavailable.",duration:5000,summary:'Please choose one of the available options.'});
+        if (this.doctorPriority) this.getByDoctor();
+        else this.getByDate();
+      });
     this.showTable=true;
     
   }
 
   getByDoctor() {
     this.apptService.getWithPriority('DOCTOR',this.appointment).subscribe(res => {
-      console.log(res);
       this.appointments=res;
       this.dataSource.data=this.appointments;
     });
@@ -61,7 +60,6 @@ export class SheduleAppointmentComponent implements OnInit {
 
   getByDate(){
     this.apptService.getWithPriority('DATE',this.appointment).subscribe(res => {
-      console.log(res);
       this.appointments=res;
       this.dataSource.data=this.appointments;
     });
@@ -69,7 +67,7 @@ export class SheduleAppointmentComponent implements OnInit {
 
   send(){
     if (this.checkParameters()) {
-      this.appointment.patientId=localStorage.getItem('patientId');
+      this.appointment.patientId=localStorage.getItem('idByRole');
       this.tryIdeal();
 
     }
@@ -77,18 +75,9 @@ export class SheduleAppointmentComponent implements OnInit {
   }
 
   checkParameters(): boolean{
-    if (this.appointment.doctorId===undefined || this.appointment.doctorId==='') {
-      console.log("puca doktor");
-      return false;
-    }
-    if (this.appointment.dateString===undefined || this.appointment.dateString==='') {
-      console.log("puca datum");
-      return false;
-    }
-    if (!this.doctorPriority && !this.datePriority) {
-      console.log("puca prioritet");
-      return false;
-    }
+    if (this.appointment.doctorId===undefined || this.appointment.doctorId==='') return false;
+    if (this.appointment.dateString===undefined || this.appointment.dateString==='') return false;
+    if (!this.doctorPriority && !this.datePriority) return false;
 
     return true;
   }
@@ -97,8 +86,11 @@ export class SheduleAppointmentComponent implements OnInit {
     if (this.selectedSpecialty!=''){
       this.doctorService.getBySpecialty(this.selectedSpecialty).subscribe(res => {
         this.doctors=res;
+        if (res.length===0) this.toast.error({detail:"There are currently no doctors of the selected specialization!",duration:2000,summary:''});    
       });
-    } else this.doctors=[];
+    } else {
+      this.doctors=[];
+    }
   }
 
   selectAppointment(appt:any){
@@ -109,7 +101,11 @@ export class SheduleAppointmentComponent implements OnInit {
   schedule(){
     this.selectedAppt.patientId=localStorage.getItem('idByRole');
     this.apptService.scheduleAppointment(this.selectedAppt).subscribe(res => {
-      console.log(res);
-    });
+      this.toast.success({detail:"Your appointment was scheduled!",duration:5000,summary:''});
+      this.router.navigate(['/appt-view']);
+    },
+     error =>{
+      this.toast.error({detail:"Something went wrong!",duration:5000,summary:'Please try again.'});   
+     });
   }
 }
