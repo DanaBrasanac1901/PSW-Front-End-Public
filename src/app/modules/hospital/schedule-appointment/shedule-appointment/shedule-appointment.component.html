@@ -32,7 +32,7 @@
             <td align="center">
                   <div class="row">
                       <p class="block">Choose the date:</p>
-                      <input type="date" [(ngModel)]="appointment.startDate" name="date">
+                      <input type="date" [(ngModel)]="appointment.dateString" name="date">
                     </div>
             </td>
         </tr>
@@ -66,15 +66,15 @@
             </ng-container>
             <ng-container matColumnDef="date">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header class="cell-center"> Date </th>
-                <td mat-cell *matCellDef="let appointment" class="cell-center">{{appointment.startDate}}</td>
+                <td mat-cell *matCellDef="let appointment" class="cell-center">{{appointment.dateString}}</td>
             </ng-container>
             <ng-container matColumnDef="time">
               <th mat-header-cell *matHeaderCellDef mat-sort-header class="cell-center"> Time </th>
-              <td mat-cell *matCellDef="let appointment" class="cell-center">{{appointment.startTime}}</td>
+              <td mat-cell *matCellDef="let appointment" class="cell-center">{{appointment.timeString}}</td>
            </ng-container>
            <ng-container matColumnDef="room">
             <th mat-header-cell *matHeaderCellDef mat-sort-header class="cell-center"> Room </th>
-            <td mat-cell *matCellDef="let appointment" class="cell-center">{{appointment.roomId}}</td>
+            <td mat-cell *matCellDef="let appointment" class="cell-center">{{appointment.roomNumber}}</td>
           </ng-container>
             <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
             <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="selectAppointment(row)"></tr>
@@ -84,12 +84,6 @@
           <td align="center">
             <button class="btn" (click)="schedule()">Schedule appointment</button>
           </td>
-        </tr>
-
-        <tr>
-        <td align="center">
-          <button class="btn" (click)="schedule()">Schedule appointment</button>
-        </td>
         </tr>
 
     </table>

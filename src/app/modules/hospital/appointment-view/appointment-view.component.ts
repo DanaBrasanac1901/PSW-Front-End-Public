@@ -20,7 +20,7 @@ export class AppointmentViewComponent implements OnInit {
   constructor(private appointmentService: AppointmentService, private router:Router) { }
 
   ngOnInit(): void {
-    this.appointmentService.getAppointments(localStorage.getItem('patientId')).subscribe(res => {
+    this.appointmentService.getAppointments(localStorage.getItem('idByRole')).subscribe(res => {
       console.log(res);
       this.appointments=res;
       this.dataSource.data = this.appointments;

@@ -26,6 +26,6 @@ export class AppointmentService {
   }
 
   scheduleAppointment(appt:any): any {
-    return this.http.post<any>(this.apiHost + 'api/Appointments',appt,{ headers: this.headers });
+    return this.http.post<any>(this.apiHost + 'api/Appointments/patientSchedule',appt,{ headers: this.headers });
   }
 }

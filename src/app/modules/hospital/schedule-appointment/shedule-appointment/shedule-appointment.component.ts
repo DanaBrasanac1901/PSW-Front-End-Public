@@ -52,11 +52,19 @@ export class SheduleAppointmentComponent implements OnInit {
   }
 
   getByDoctor() {
-    
+    this.apptService.getWithPriority('DOCTOR',this.appointment).subscribe(res => {
+      console.log(res);
+      this.appointments=res;
+      this.dataSource.data=this.appointments;
+    });
   }
 
   getByDate(){
-    
+    this.apptService.getWithPriority('DATE',this.appointment).subscribe(res => {
+      console.log(res);
+      this.appointments=res;
+      this.dataSource.data=this.appointments;
+    });
   }
 
   send(){
@@ -73,7 +81,7 @@ export class SheduleAppointmentComponent implements OnInit {
       console.log("puca doktor");
       return false;
     }
-    if (this.appointment.startDate===undefined || this.appointment.startDate==='') {
+    if (this.appointment.dateString===undefined || this.appointment.dateString==='') {
       console.log("puca datum");
       return false;
     }
@@ -99,6 +107,7 @@ export class SheduleAppointmentComponent implements OnInit {
   }
 
   schedule(){
+    this.selectedAppt.patientId=localStorage.getItem('idByRole');
     this.apptService.scheduleAppointment(this.selectedAppt).subscribe(res => {
       console.log(res);
     });
