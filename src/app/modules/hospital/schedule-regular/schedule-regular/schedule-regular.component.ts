@@ -60,6 +60,15 @@ export class ScheduleRegularComponent implements OnInit {
 
   schedule(){
     this.selectedAppt.patientId=localStorage.getItem('idByRole');
+    this.apptService.checkIfAvailable(this.selectedAppt).subscribe(res => {
+      //ako je odgovor 200 Ok onda nastavi
+    }, error =>{
+      this.toast.error({detail:"Appointment is no longer available!",duration:3000,summary:'Please try again.'});  
+      this.showTable=false; 
+      return;
+    });
+
+
     this.apptService.scheduleAppointment(this.selectedAppt).subscribe(res => {
       this.toast.success({detail:"Your appointment was scheduled!",duration:3000,summary:''});
       this.router.navigate(['/appt-view']);

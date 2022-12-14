@@ -292,3 +292,34 @@ label:hover {
   background-color: #E8EAF6;
   cursor: pointer;
 }
+
+.back_btn {
+  background-image: url(/assets/images/back.png);
+  height:55px;
+width:55px;
+background-size:55px;
+  color: rgb(94,111,120);
+  text-decoration: none;
+  padding: 10px 20px;
+  display: inline-block;
+  border-radius: 100px;
+  transition: all .2s;
+  position: relative;
+  border: none;
+}
+
+  .back_btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  .back_btn:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  }
+
+.back_btn-white {
+  background-color: #fff;
+  color: #777;
+  font-size: 14px;
+}

@@ -1,7 +1,7 @@
 
 <body>
   <div class="row" style="margin-left:-15%">
-  <button class="back_btn" style="margin-left:-10%; margin-top:0%;" (click)="goBack()"></button>
+  <button class="back_btn" style="margin-left:-10%; margin-top:1%;" (click)="goBack()"></button>
     <form id="formlogin" style="display: inline-block; width:90%;margin-left:20%; margin-top:-5%">
       <table class="login_container" *ngIf="!showTable">
         
@@ -41,7 +41,7 @@
           </tr>
       </table>
 
-      <table class="container2" *ngIf="showTable" >
+      <table class="container2" style="margin-top:6%" *ngIf="showTable" >
         <table mat-table [dataSource]="dataSource" matSort #empTbSort="matSort" class="fl-table">
             <ng-container matColumnDef="doctorName" >
                 <th mat-header-cell *matHeaderCellDef mat-sort-header class="cell-center" > Doctor </th>

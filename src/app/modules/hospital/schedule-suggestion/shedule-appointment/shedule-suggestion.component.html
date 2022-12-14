@@ -5,9 +5,9 @@
 
 <body>
   <div class="row">
-    <button class="back_btn" style="margin-left:-5%; margin-top:5%;" (click)="goBack()"></button>
+    <button class="back_btn" style="margin-left:-40%; margin-top:1%;" (click)="goBack()"></button>
     <form id="formlogin">
-      <table class="login_container" *ngIf="!showTable">
+      <table class="login_container" style="margin-top:-3%" *ngIf="!showTable">
         
           <tr>
             <td align="center">
@@ -65,7 +65,7 @@
           </tr>
       </table>
 
-      <table class="container2" *ngIf="showTable" >
+      <table class="container2" style="margin-top:2%" *ngIf="showTable" >
         <table mat-table [dataSource]="dataSource" matSort #empTbSort="matSort"  class="fl-table">
             <ng-container matColumnDef="doctorName" >
                 <th mat-header-cell *matHeaderCellDef mat-sort-header class="cell-center" > Doctor </th>

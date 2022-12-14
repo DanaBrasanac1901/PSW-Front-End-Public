@@ -28,4 +28,8 @@ export class AppointmentService {
   scheduleAppointment(appt:any): any {
     return this.http.post<any>(this.apiHost + 'api/Appointments/patient/schedule',appt,{ headers: this.headers });
   }
+
+  checkIfAvailable(appt:Appointment): any {
+    return this.http.post<Appointment[]>(this.apiHost + 'api/Appointments/patient/AppAvailability',appt, { headers: this.headers });
+  }
 }
