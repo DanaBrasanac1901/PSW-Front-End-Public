@@ -1,6 +1,8 @@
 
 <body>
-    <form id="formlogin">
+  <div class="row" style="margin-left:-15%">
+  <button class="back_btn" style="margin-left:-10%; margin-top:0%;" (click)="goBack()"></button>
+    <form id="formlogin" style="display: inline-block; width:90%;margin-left:20%; margin-top:-5%">
       <table class="login_container" *ngIf="!showTable">
         
           <tr>
@@ -28,7 +30,7 @@
             <td align="center">
                   <div class="row">
                       <p class="block">Choose the date:</p>
-                      <input [min]="changedDate"  type="date" [(ngModel)]="appointment.dateString" name="date">
+                      <input [min]="changedDate"  type="date"  [(ngModel)]="appointment.dateString" name="date">
                     </div>
             </td>
         </tr>
@@ -69,4 +71,5 @@
 
     </table>
   </form>
+</div>
 </body>

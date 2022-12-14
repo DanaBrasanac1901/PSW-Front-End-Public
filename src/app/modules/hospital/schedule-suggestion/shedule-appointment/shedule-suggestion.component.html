@@ -4,6 +4,8 @@
 -->
 
 <body>
+  <div class="row">
+    <button class="back_btn" style="margin-left:-5%; margin-top:5%;" (click)="goBack()"></button>
     <form id="formlogin">
       <table class="login_container" *ngIf="!showTable">
         
@@ -36,8 +38,8 @@
         <tr>
             <td align="center">
                   <div class="row">
-                      <input type="date" [(ngModel)]="appointment.startDateString" name="date">-
-                      <input type="date" [(ngModel)]="appointment.endDateString" name="date">
+                      <input type="date" [(ngModel)]="appointment.startDateString" [min]="changedDate" name="date">-
+                      <input type="date" [(ngModel)]="appointment.endDateString" [min]="changedDate" name="date">
                     </div>
             </td>
         </tr>
@@ -93,4 +95,5 @@
 
     </table>
   </form>
+  </div>
 </body>

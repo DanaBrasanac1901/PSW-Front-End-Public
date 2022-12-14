@@ -7,6 +7,12 @@ import { DoctorService } from '../../services/doctor.service';
 import { AppointmentService } from '../../services/appointment.service';
 import { Router } from '@angular/router';
 import { MatSort } from '@angular/material/sort';
+import { DatePipe } from '@angular/common';
+
+import { LOCALE_ID } from '@angular/core';
+import { registerLocaleData } from '@angular/common';
+import localeSr from '@angular/common/locales/sr-Latn';
+registerLocaleData(localeSr, 'sr-Latn');
 
 @Component({
   selector: 'app-shedule-suggestion',
@@ -34,8 +40,14 @@ export class SheduleSuggestionComponent implements OnInit {
 
   constructor(private toast:NgToastService, private doctorService:DoctorService,private apptService:AppointmentService, private router: Router) { }
 
-  ngOnInit(): void {
+  today = new Date();
+  changedDate = '';
+  pipe = new DatePipe('sr-Latn');
 
+  ngOnInit(): void {
+    let ChangedFormat = this.pipe.transform(this.today, 'YYYY-MM-dd');
+    this.changedDate = ChangedFormat;
+    console.log(this.changedDate);
   }
 
   getByDoctor() {
@@ -44,6 +56,9 @@ export class SheduleSuggestionComponent implements OnInit {
       this.dataSource.data=this.appointments;
       this.dataSource.sort = this.empTbSort;
       console.log(this.appointments);
+    }, error => {
+      this.toast.error({detail:"Doctor is busy in that time frame!",duration:2000,summary:''});
+      this.showTable=false;
     });
   }
 
@@ -53,6 +68,13 @@ export class SheduleSuggestionComponent implements OnInit {
       this.dataSource.data=this.appointments;
       this.dataSource.sort = this.empTbSort;
       this.dataSource.data=this.appointments;
+
+      if(this.appointments.length===0){
+        this.toast.error({detail:"There are no available appointments in that period!",duration:2000,summary:''});
+        this.showTable=false;
+      }
+    }, error=>{
+      
     });
   }
 
@@ -101,5 +123,12 @@ export class SheduleSuggestionComponent implements OnInit {
      error =>{
       this.toast.error({detail:"Something went wrong!",duration:3000,summary:'Please try again.'});   
      });
+  }
+
+  goBack(){
+    if(this.showTable){
+      this.showTable=false;
+    } else this.router.navigate(['/appt-view']);
+
   }
 }

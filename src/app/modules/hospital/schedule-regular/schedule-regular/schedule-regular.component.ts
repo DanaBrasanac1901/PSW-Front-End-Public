@@ -101,4 +101,11 @@ export class ScheduleRegularComponent implements OnInit {
     console.log(appt);
   }
 
+  goBack(){
+    if(this.showTable){
+      this.showTable=false;
+    } else this.router.navigate(['/appt-view']);
+
+  }
+
 }
