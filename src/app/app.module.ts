@@ -17,7 +17,8 @@ import { RoleGuardService } from "src/app/auth/role-guard.service";
 import { AuthInterceptor } from "./auth/auth.interceptor";
 import { ToolbarComponent } from "./modules/pages/toolbar/toolbar/toolbar.component";
 import { MatToolbarModule } from "@angular/material/toolbar";
-
+import { MatSortModule } from "@angular/material/sort";
+import { DatePipe } from "@angular/common";
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import { MatToolbarModule } from "@angular/material/toolbar";
     IntegrationModule,
     FormsModule,
     ReactiveFormsModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatSortModule
   ],
   providers: [
     {
@@ -48,7 +50,8 @@ import { MatToolbarModule } from "@angular/material/toolbar";
       useClass: AuthInterceptor,
       multi: true
     },
-    RoleGuardService
+    RoleGuardService,
+    DatePipe
   ],
 
   bootstrap: [AppComponent]

@@ -5,24 +5,29 @@ import { RouterModule, Routes } from "@angular/router";
 import { MaterialModule } from "src/app/material/material.module";
 import { MatButtonModule } from '@angular/material/button';
 import { AppointmentViewComponent } from './appointment-view/appointment-view.component';
-import { SheduleAppointmentComponent } from './schedule-appointment/shedule-appointment/shedule-appointment.component';
+import { SheduleSuggestionComponent } from "./schedule-suggestion/shedule-appointment/shedule-suggestion.component";
 import { RoleGuardService } from 'src/app/auth/role-guard.service';
+import { ScheduleRegularComponent } from './schedule-regular/schedule-regular/schedule-regular.component';
+import { MatSortModule } from "@angular/material/sort";
 
 const routes: Routes = [
   {
     path: 'appt-view', component: AppointmentViewComponent,
     canActivate: [RoleGuardService], data: { expectedRole: 'PATIENT' }
   },
-  { path: 'schedule-appointment', component: SheduleAppointmentComponent },
+  { path: 'schedule-regular', component: ScheduleRegularComponent },
+  { path: 'schedule-suggestion', component: SheduleSuggestionComponent },
 ];
 
 @NgModule({
   declarations: [
     AppointmentViewComponent,
-    SheduleAppointmentComponent,
+    SheduleSuggestionComponent,
+    ScheduleRegularComponent,
     
   ],
   imports: [
+    MatSortModule,
     CommonModule,
     MaterialModule,
     FormsModule,

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Appointment } from '../../model/appointment.model';
 import { Doctor } from '../../model/doctor.model';
 import { MatTableDataSource } from '@angular/material/table';
@@ -6,14 +6,16 @@ import { NgToastService } from 'ng-angular-popup';
 import { DoctorService } from '../../services/doctor.service';
 import { AppointmentService } from '../../services/appointment.service';
 import { Router } from '@angular/router';
+import { MatSort } from '@angular/material/sort';
 
 @Component({
-  selector: 'app-shedule-appointment',
-  templateUrl: './shedule-appointment.component.html',
-  styleUrls: ['./shedule-appointment.component.css']
+  selector: 'app-shedule-suggestion',
+  templateUrl: './shedule-suggestion.component.html',
+  styleUrls: ['./shedule-suggestion.component.css']
 })
-export class SheduleAppointmentComponent implements OnInit {
+export class SheduleSuggestionComponent implements OnInit {
 
+  @ViewChild('empTbSort') empTbSort = new MatSort();
   public appointment:Appointment=new Appointment();
   public doctors:Doctor[]=[];
   public selectedDoctor:any;
@@ -36,25 +38,12 @@ export class SheduleAppointmentComponent implements OnInit {
 
   }
 
-  tryIdeal(){
-    this.apptService.getIdealAppointment(this.appointment).subscribe(res => {
-      this.appointments=res;
-      this.dataSource.data=this.appointments;
-      this.toast.success({detail:"Good news! The doctor is available on that date.",duration:2000,summary:''});
-    },
-      error=>{
-        this.toast.error({detail:"Requested appointment is unavailable! Choose an available option.",duration:2000,summary:''});
-        if (this.doctorPriority) this.getByDoctor();
-        else this.getByDate();
-      });
-    this.showTable=true;
-    
-  }
-
   getByDoctor() {
     this.apptService.getWithPriority('DOCTOR',this.appointment).subscribe(res => {
       this.appointments=res;
       this.dataSource.data=this.appointments;
+      this.dataSource.sort = this.empTbSort;
+      console.log(this.appointments);
     });
   }
 
@@ -62,13 +51,17 @@ export class SheduleAppointmentComponent implements OnInit {
     this.apptService.getWithPriority('DATE',this.appointment).subscribe(res => {
       this.appointments=res;
       this.dataSource.data=this.appointments;
+      this.dataSource.sort = this.empTbSort;
+      this.dataSource.data=this.appointments;
     });
   }
 
   send(){
     if (this.checkParameters()) {
       this.appointment.patientId=localStorage.getItem('idByRole');
-      this.tryIdeal();
+      if (this.doctorPriority) this.getByDoctor();
+      else this.getByDate();
+      this.showTable=true;
 
     }
     else this.toast.error({detail:"Please fill the entire form!",duration:2000,summary:''});    
@@ -76,7 +69,8 @@ export class SheduleAppointmentComponent implements OnInit {
 
   checkParameters(): boolean{
     if (this.appointment.doctorId===undefined || this.appointment.doctorId==='') return false;
-    if (this.appointment.dateString===undefined || this.appointment.dateString==='') return false;
+    if (this.appointment.startDateString===undefined || this.appointment.startDateString==='') return false;
+    if (this.appointment.endDateString===undefined || this.appointment.endDateString==='') return false;
     if (!this.doctorPriority && !this.datePriority) return false;
 
     return true;

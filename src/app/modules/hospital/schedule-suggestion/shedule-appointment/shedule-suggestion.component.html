@@ -29,16 +29,21 @@
           </td>
         </tr>
         <tr>
+          <td align="center">
+              <p style="color:white; width: 100%;">Choose a date range:</p>
+          </td>
+        </tr>
+        <tr>
             <td align="center">
                   <div class="row">
-                      <p class="block">Choose the date:</p>
-                      <input type="date" [(ngModel)]="appointment.dateString" name="date">
+                      <input type="date" [(ngModel)]="appointment.startDateString" name="date">-
+                      <input type="date" [(ngModel)]="appointment.endDateString" name="date">
                     </div>
             </td>
         </tr>
         <tr>
             <td align="center">
-                <p style="color:white;margin-left: 5%; width: 100%;">If the request is not possible, which has priority:</p>
+                <p style="color:white;margin-left: 5%; width: 100%;">Which has priority?</p>
             </td>
           </tr>
           <tr>
@@ -59,7 +64,7 @@
       </table>
 
       <table class="container2" *ngIf="showTable" >
-        <table mat-table [dataSource]="dataSource"   class="fl-table">
+        <table mat-table [dataSource]="dataSource" matSort #empTbSort="matSort"  class="fl-table">
             <ng-container matColumnDef="doctorName" >
                 <th mat-header-cell *matHeaderCellDef mat-sort-header class="cell-center" > Doctor </th>
                 <td mat-cell *matCellDef="let appointment" class="clickable cell-center" >{{appointment.doctorName}}</td>

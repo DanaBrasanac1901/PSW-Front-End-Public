@@ -1,0 +1,294 @@
+
+@import url('https://fonts.googleapis.com/css?family=Varela+Round');
+
+body {
+  overflow: auto;
+  font-family: 'Varela Round', sans-serif;
+  background-image: url(/assets/images/header.jpg);
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+  background-repeat:repeat;
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+}
+.login_container {
+  margin: 5% auto;
+  border-radius: 15px;
+  width: 30%;
+  height: 50%;
+  background-color: rgb(31,82,109);
+  background-image: linear-gradient(to right, rgb(127, 175, 201), rgb(40, 103, 136));
+  border: 1px solid;
+  border-color: rgb(217, 214, 211);
+  color: rgb(249, 249, 249);
+  line-height: 3.5em;
+  align-items: center;
+}
+
+.container2 {
+  margin: 5% auto;
+  border-radius: 15px;
+  width: 80%;
+  background-color: rgb(31,82,109);
+  background-image: linear-gradient(to right, rgb(127, 175, 201), rgb(40, 103, 136));
+  border: 1px solid;
+  border-color: rgb(217, 214, 211);
+  color: rgb(94,111,120);
+  line-height: 3.5em;
+  align-items: center;
+}
+
+.credential_labels {
+  padding-top: 1px;
+  color: white;
+  font-size: 13px;
+}
+
+
+.credential_inputs {
+  font-size: 20px;
+  height: 30px;
+  width: 250px;
+  margin-top: -25px;
+  color: #ccc;
+  text-align: center;
+}
+
+  .credential_inputs::placeholder {
+    color: rgb(138, 137, 137);
+  }
+
+
+
+.btn {
+  color: rgb(94,111,120);
+  text-decoration: none;
+  padding: 10px 20px;
+  display: inline-block;
+  border-radius: 100px;
+  transition: all .2s;
+  position: relative;
+  border: none;
+}
+
+  .btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  .btn:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  }
+
+.btn-white {
+  background-color: #fff;
+  color: #777;
+  font-size: 14px;
+}
+
+.box {
+  width: 350px;
+  height: 250px;
+  background: #2C394B;
+  color: white;
+  border-radius: 10px;
+  position: absolute;
+  clip-path: polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  transition: all .4s;
+}
+
+.btn:checked ~ .box {
+  clip-path: polygon(0 0, 0 100%, 100% 100%, 100% 0);
+}
+
+.box p {
+  font-size: 1.5em;
+}
+
+.box label {
+  width: 120px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: white;
+  color: black;
+  margin-top: 1em;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0px 6px #556b88;
+  transition: all .4s;
+}
+
+label:hover {
+  box-shadow: 0px 0px 30px #788daa83;
+}
+
+.r1 {
+  display: grid;
+  grid-template-columns: 0.9fr 0.1fr;
+  grid-template-rows: 1fr;
+  width:85%;
+  gap: 0px 0px;
+  grid-template-areas:
+    "slot1 slot2";
+}
+
+.slot1 {
+  grid-area: slot1;
+}
+
+.slot2 {
+  grid-area: slot2;
+}
+
+.r2 {
+  display: grid;
+  grid-template-columns: 0.9fr 0.1fr;
+  grid-template-rows: 1fr;
+  width: 85%;
+  gap: 0px 0px;
+  grid-template-areas:
+    "slot3 slot4";
+}
+
+.slot3 {
+  grid-area: slot3;
+}
+
+.slot4 {
+  grid-area: slot4;
+}
+
+.row {
+  width: 100%;
+  text-align: center; 
+}
+
+.block {
+  width: 150px;
+  display: inline-block;
+  color:rgb(255, 255, 255);
+}
+
+.fl-table {
+  margin-top: 3%;
+  border-radius: 5px;
+  font-size: 12px;
+  font-weight: normal;
+  border: none;
+  border-collapse: collapse;
+  width: 100%;
+  white-space: nowrap;
+  background-color: white;
+  line-height: 1em;
+
+}
+
+.fl-table td, .fl-table th {
+    text-align: center;
+    padding: 8px;
+}
+
+.fl-table td {
+    border-right: 1px solid #f8f8f8;
+    font-size: 12px;
+}
+
+.fl-table thead th {
+    color: #ffffff;
+    background: #4FC3A1;
+}
+
+
+.fl-table thead th:nth-child(odd) {
+    color: #ffffff;
+    background: #324960;
+}
+
+.fl-table tr:nth-child(even) {
+    background: #F8F8F8;
+}
+
+/* Responsive */
+
+@media (max-width: 767px) {
+    .fl-table {
+        display: block;
+        width: 100%;
+    }
+    .table-wrapper:before{
+        content: "Scroll horizontally >";
+        display: block;
+        text-align: right;
+        font-size: 11px;
+        color: white;
+        padding: 0 0 10px;
+    }
+    .fl-table thead, .fl-table tbody, .fl-table thead th {
+        display: block;
+    }
+    .fl-table thead th:last-child{
+        border-bottom: none;
+    }
+    .fl-table thead {
+        float: left;
+    }
+    .fl-table tbody {
+        width: auto;
+        position: relative;
+        overflow-x: auto;
+    }
+    .fl-table td, .fl-table th {
+        padding: 20px .625em .625em .625em;
+        height: 60px;
+        vertical-align: middle;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        overflow-y: auto;
+        width: 120px;
+        font-size: 13px;
+        text-overflow: ellipsis;
+    }
+    .fl-table td:hover{
+      background-color: #E8EAF6;
+      cursor: pointer;
+    }
+    .fl-table thead th {
+        text-align: left;
+        border-bottom: 1px solid #f7f7f9;
+    }
+    .fl-table tbody tr {
+        display: table-cell;
+    }
+    .fl-table tbody tr:nth-child(odd) {
+        background: none;
+    }
+    .fl-table tr:nth-child(even) {
+        background: transparent;
+    }
+    .fl-table tr td:nth-child(odd) {
+        background: #F8F8F8;
+        border-right: 1px solid #E6E4E4;
+    }
+    .fl-table tr td:nth-child(even) {
+        border-right: 1px solid #E6E4E4;
+    }
+    .fl-table tbody td {
+        display: block;
+        text-align: center;
+    }
+}
+
+.mat-row:hover {
+  background-color: #E8EAF6;
+  cursor: pointer;
+}

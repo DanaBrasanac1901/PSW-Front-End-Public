@@ -2,13 +2,13 @@
 @import url('https://fonts.googleapis.com/css?family=Varela+Round');
 body {
   background: transparent;
-  overflow: hidden;
+  overflow: auto;
   font-family: 'Varela Round', sans-serif;
   background-image: url(/assets/images/header.jpg);
   background-size: cover;
   background-position: center center;
   background-attachment: fixed;
-  background-repeat: no-repeat;
+  background-repeat: repeat;
   height: 100vh;
   width: 100vw;
   margin: 0;

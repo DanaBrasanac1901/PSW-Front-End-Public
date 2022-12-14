@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SheduleAppointmentComponent } from './shedule-appointment.component';
+import { SheduleSuggestionComponent } from './shedule-suggestion.component';
 
 describe('SheduleAppointmentComponent', () => {
-  let component: SheduleAppointmentComponent;
-  let fixture: ComponentFixture<SheduleAppointmentComponent>;
+  let component: SheduleSuggestionComponent;
+  let fixture: ComponentFixture<SheduleSuggestionComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SheduleAppointmentComponent ]
+      declarations: [ SheduleSuggestionComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(SheduleAppointmentComponent);
+    fixture = TestBed.createComponent(SheduleSuggestionComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
