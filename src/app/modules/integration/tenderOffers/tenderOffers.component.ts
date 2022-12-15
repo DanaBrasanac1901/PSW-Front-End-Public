@@ -24,6 +24,7 @@ export class TenderOffersComponent implements OnInit {
         this.tender = res;
   })})}
   create(): void {
+    this.offer.bloodBankId='55510651-d36e-444d-95fb-871e0902cd7e';
     this.offer.tenderId=this.tender.id;
     this.tenderOfferService.create(this.offer).subscribe();
     this.router.navigate(['/tenders']);

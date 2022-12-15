@@ -1,0 +1,13 @@
+<div class="bg">
+<div class="container">
+  <div class="card" *ngFor="let tender of tenders">
+    <p>Hospital name: {{tender.hospitalName}}</p>
+    <p>Amount of A type blood (in liters)  {{tender.amountOfA}}</p>
+    <p>Amount of B type blood (in liters)  {{tender.amountOfB}}</p>
+    <p>Amount of AB type blood (in liters)  {{tender.amountOfAB}}</p>
+    <p>Amount of O type blood (in liters)  {{tender.amountOfO}}</p>
+    <p>Expires {{tender.expiration}}</p>
+    <button (click)="makeOffer(tender)"> Make offer</button>
+  </div>
+</div>
+</div>

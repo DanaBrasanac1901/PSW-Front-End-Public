@@ -12,7 +12,7 @@ import {FormsModule,ReactiveFormsModule} from '@angular/forms';
 import { HTTP_INTERCEPTORS } from "@angular/common/http";
 import { MatTableModule } from '@angular/material/table'
 import { CdkTableModule } from "@angular/cdk/table";
-import {NgToastModule} from 'ng-angular-popup'
+import { NgToastModule } from 'ng-angular-popup'
 import { RoleGuardService } from "src/app/auth/role-guard.service";
 import { AuthInterceptor } from "./auth/auth.interceptor";
 import { ToolbarComponent } from "./modules/pages/toolbar/toolbar/toolbar.component";
