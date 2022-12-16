@@ -26,12 +26,12 @@
 
       <div class="table-grid">
 
-        <button class="btn" (click)="onPress()">Input feedback</button>
+        <button class="btn" id="create-feedback-button" (click)="onPress()">Input feedback</button>
 
-        <table mat-table [dataSource]="dataSource" class="fl-table">
+        <table id="feedback-table" mat-table [dataSource]="dataSource" class="fl-table">
           <ng-container matColumnDef="patientName">
             <th mat-header-cell *matHeaderCellDef mat-sort-header class="cell-center"> Name </th>
-            <td mat-cell *matCellDef="let feedback" class="clickable cell-center">{{feedback.patientId}}</td>
+            <td mat-cell *matCellDef="let feedback" class="clickable cell-center">{{feedback.patientName}} {{feedback.patientSurname}}</td>
           </ng-container>
           <ng-container matColumnDef="comment">
             <th mat-header-cell *matHeaderCellDef mat-sort-header class="cell-center"> Comment </th>
