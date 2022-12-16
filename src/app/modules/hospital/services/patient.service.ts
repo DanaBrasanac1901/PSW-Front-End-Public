@@ -9,7 +9,7 @@ import { Doctor } from '../model/doctor.model';
 })
 export class PatientService {
 
-  apiHost: string = 'http://localhost:16177/';
+  apiHost: string = 'http://localhost:5000/';
   headers: HttpHeaders = new HttpHeaders({ 'Content-Type': 'application/json' });
 
   constructor(private http: HttpClient) { }
@@ -33,8 +33,11 @@ export class PatientService {
   loginPatient(user: any): Observable<any> {
     return this.http.post<any>(this.apiHost + 'api/patients/login', user, { headers: this.headers });
   }
+  getPatientByEmail(email: string): Observable<Patient> {
+    return this.http.get<Patient>(this.apiHost + 'api/patients/getPatientByEmail/' + email, { headers: this.headers });
+  }
 
-
+  
   updatePatient(user: any): Observable<any> {
     return this.http.put<any>(this.apiHost + 'api/patients/' + user.id, user, { headers: this.headers });
   }

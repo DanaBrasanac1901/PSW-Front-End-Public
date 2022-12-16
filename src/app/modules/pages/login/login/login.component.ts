@@ -3,6 +3,8 @@ import { NgToastService } from 'ng-angular-popup';
 import { User } from 'src/app/modules/hospital/model/user.model';
 import { AuthService } from 'src/app/modules/hospital/services/auth.service';
 import { Router } from '@angular/router';
+import { Patient } from 'src/app/modules/hospital/model/patient.model';
+import { PatientService } from 'src/app/modules/hospital/services/patient.service';
 
 @Component({
   selector: 'app-login',
@@ -13,8 +15,9 @@ export class LoginComponent implements OnInit {
 
   public user=new User();
   public variable='';
+  public patient: Patient;
 
-  constructor(private toast:NgToastService,private router: Router,private authService:AuthService) { }
+  constructor(private toast:NgToastService,private router: Router,private authService:AuthService, private patientService:PatientService) { }
 
   ngOnInit(): void {
   }
@@ -27,7 +30,14 @@ export class LoginComponent implements OnInit {
       .subscribe(response => {
         this.authService.setSession(response);
         let role = this.authService.getRole();
+        let email = this.authService.getEmail();
         if (role === 'PATIENT') {
+          this.patientService.getPatientByEmail(email).subscribe(res => {
+            this.patient = res;
+            if(this.patient.blocked == 'true'){
+              this.toast.error({ detail: 'You are blocked!', duration: 5000 });
+            }
+          });
           this.router.navigate(['/home']);
         } else {
           this.toast.error({ detail: 'There is no patient with this info!', summary: "Please try again.", duration: 5000 });

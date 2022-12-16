@@ -4,7 +4,7 @@ import { AppRoutingModule } from 'src/app/app-routing.module';
 import { HomeComponent } from './home/home.component';
 import { RouterModule, Routes } from "@angular/router";
 import { RegistrationComponent } from './registration/registration.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule } from "@angular/forms";
 import { LoginComponent } from './login/login/login.component';
 import { MatTableModule } from '@angular/material/table';
 import { RoleGuardService } from 'src/app/auth/role-guard.service';

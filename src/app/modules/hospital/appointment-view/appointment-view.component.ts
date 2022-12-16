@@ -16,7 +16,7 @@ export class AppointmentViewComponent implements OnInit {
   public appointments: Appointment[] = [];
   public dataSource = new MatTableDataSource<Appointment>();
   public displayedColumns = ['doctorName','date','time','room','status'];
-  
+  public canCancel: boolean;
 
   public temp: Appointment=new Appointment;
 
@@ -38,5 +38,15 @@ export class AppointmentViewComponent implements OnInit {
 
   scheduleSuggestions(){
     this.router.navigate(["/schedule-suggestion"]);
+  }
+
+  cancelAppointment(id: number, status: string){
+    if(status != "1"){
+      alert("Cant cancel this appointment");
+      return;
+    }
+    this.appointmentService.patientCancelsAppointment(id).subscribe(res => {
+      alert("Appointment canceled");
+    });
   }
 }

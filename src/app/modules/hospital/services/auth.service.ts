@@ -9,7 +9,7 @@ import { RegDTO } from '../model/regDTO.model';
   providedIn: 'root',
 })
 export class AuthService {
-    apiHost: string = 'http://localhost:16177/';
+    apiHost: string = 'http://localhost:5000/';
     headers: HttpHeaders = new HttpHeaders({ 'Content-Type': 'application/json' });
 
     constructor(private http: HttpClient) {
@@ -30,6 +30,7 @@ export class AuthService {
     localStorage.setItem('userId', token.claims[0].value);
     localStorage.setItem('idByRole', token.claims[1].value);
     localStorage.setItem('fullName', token.claims[3].value + ' ' + token.claims[4].value);
+    localStorage.setItem('email', token.claims[2].value);
     localStorage.setItem("expires_at", token.validTo);
   }
 
@@ -64,6 +65,10 @@ export class AuthService {
 
     getName() {
       return localStorage.getItem("fullName");
+    }
+    
+    getEmail() {
+      return localStorage.getItem("email");
     }
   }
 

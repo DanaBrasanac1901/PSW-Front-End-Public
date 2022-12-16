@@ -9,6 +9,7 @@ import { SheduleSuggestionComponent } from "./schedule-suggestion/shedule-appoin
 import { RoleGuardService } from 'src/app/auth/role-guard.service';
 import { ScheduleRegularComponent } from './schedule-regular/schedule-regular/schedule-regular.component';
 import { MatSortModule } from "@angular/material/sort";
+import { PatientProfileComponent } from './patient-profile/patient-profile.component';
 
 const routes: Routes = [
   {
@@ -17,6 +18,7 @@ const routes: Routes = [
   },
   { path: 'schedule-regular', component: ScheduleRegularComponent },
   { path: 'schedule-suggestion', component: SheduleSuggestionComponent },
+  { path: 'profile', component: PatientProfileComponent }
 ];
 
 @NgModule({
@@ -24,6 +26,7 @@ const routes: Routes = [
     AppointmentViewComponent,
     SheduleSuggestionComponent,
     ScheduleRegularComponent,
+    PatientProfileComponent,
     
   ],
   imports: [

@@ -8,7 +8,7 @@ import { Appointment } from '../model/appointment.model';
 })
 export class AppointmentService {
 
-  apiHost: string = 'http://localhost:16177/';
+  apiHost: string = 'http://localhost:5000/';
   headers: HttpHeaders = new HttpHeaders({ 'Content-Type': 'application/json' });
 
   constructor(private http: HttpClient) { }
@@ -31,5 +31,8 @@ export class AppointmentService {
 
   checkIfAvailable(appt:Appointment): any {
     return this.http.post<Appointment[]>(this.apiHost + 'api/Appointments/patient/AppAvailability',appt, { headers: this.headers });
+  }
+  patientCancelsAppointment(id: number): Observable<any> {
+    return this.http.put<any>(this.apiHost + 'api/patients/patientCancelsAppointment', id, { headers: this.headers });
   }
 }

@@ -1,0 +1,52 @@
+<body>
+    <div class="container">
+        <h1>Patient profile</h1>
+        <table>
+            <tr>
+                <td>Email:</td>
+                <td>{{patient.email}}</td>
+            </tr>
+            <tr>
+                <td>Name:</td>
+                <td>{{patient.name}}</td>
+            </tr>
+            <tr>
+                <td>Surname:</td>
+                <td>{{patient.surname}}</td>
+            </tr>
+            <tr>
+                <td>Adress:</td>
+                <td>{{patient.adress}}</td>
+            </tr>
+            <tr>
+                <td>Gender:</td>
+                <td>{{gender}}</td>
+            </tr>
+            <tr>
+                <td>Jmbg:</td>
+                <td>{{patient.jmbg}}</td>
+            </tr>
+            <tr>
+                <td>Age:</td>
+                <td>{{patient.age}}</td>
+            </tr>
+            <tr>
+                <td>Blood type:</td>
+                <td>{{bloodType}}</td>
+            </tr>
+            <tr>
+                <td>Allergies:</td>
+                <td>
+                    <select>
+                        <option value=""></option>
+                        <option *ngFor="let allergy of patient.allergies">{{allergy}}</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Chosen doctor:</td>
+                <td>{{patient.doctorId}}</td>
+            </tr>
+        </table>
+    </div>
+</body>
