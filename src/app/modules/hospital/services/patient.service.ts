@@ -34,6 +34,9 @@ export class PatientService {
     return this.http.post<any>(this.apiHost + 'api/patients/login', user, { headers: this.headers });
   }
 
+  getPatientByEmail(email: string): Observable<Patient> {
+    return this.http.get<Patient>(this.apiHost + 'api/patients/getPatientByEmail/' + email, { headers: this.headers });
+  }
 
   updatePatient(user: any): Observable<any> {
     return this.http.put<any>(this.apiHost + 'api/patients/' + user.id, user, { headers: this.headers });

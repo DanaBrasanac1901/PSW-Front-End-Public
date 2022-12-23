@@ -3,6 +3,8 @@ import { NgToastService } from 'ng-angular-popup';
 import { User } from 'src/app/modules/hospital/model/user.model';
 import { AuthService } from 'src/app/modules/hospital/services/auth.service';
 import { Router } from '@angular/router';
+import { Patient } from 'src/app/modules/hospital/model/patient.model';
+import { PatientService } from 'src/app/modules/hospital/services/patient.service';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +16,7 @@ export class LoginComponent implements OnInit {
   public user=new User();
   public variable='';
 
-  constructor(private toast:NgToastService,private router: Router,private authService:AuthService) { }
+  constructor(private toast:NgToastService,private router: Router,private authService:AuthService, private patientService:PatientService) { }
 
   ngOnInit(): void {
   }

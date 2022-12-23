@@ -16,7 +16,6 @@ export class AppointmentViewComponent implements OnInit {
   public appointments: Appointment[] = [];
   public dataSource = new MatTableDataSource<Appointment>();
   public displayedColumns = ['doctorName','date','time','room','status'];
-  
 
   public temp: Appointment=new Appointment;
 

@@ -30,6 +30,7 @@ export class AuthService {
     localStorage.setItem('userId', token.claims[0].value);
     localStorage.setItem('idByRole', token.claims[1].value);
     localStorage.setItem('fullName', token.claims[3].value + ' ' + token.claims[4].value);
+    localStorage.setItem('email', token.claims[2].value);
     localStorage.setItem("expires_at", token.validTo);
   }
 
@@ -64,6 +65,10 @@ export class AuthService {
 
     getName() {
       return localStorage.getItem("fullName");
+    }
+    
+    getEmail() {
+      return localStorage.getItem("email");
     }
   }
 
