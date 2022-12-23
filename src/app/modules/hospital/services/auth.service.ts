@@ -9,7 +9,7 @@ import { RegDTO } from '../model/regDTO.model';
   providedIn: 'root',
 })
 export class AuthService {
-    apiHost: string = 'http://localhost:5000/';
+    apiHost: string = 'http://localhost:16177/';
     headers: HttpHeaders = new HttpHeaders({ 'Content-Type': 'application/json' });
 
     constructor(private http: HttpClient) {

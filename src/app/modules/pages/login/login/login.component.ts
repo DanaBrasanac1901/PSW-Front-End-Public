@@ -15,7 +15,6 @@ export class LoginComponent implements OnInit {
 
   public user=new User();
   public variable='';
-  public patient: Patient;
 
   constructor(private toast:NgToastService,private router: Router,private authService:AuthService, private patientService:PatientService) { }
 
@@ -30,14 +29,7 @@ export class LoginComponent implements OnInit {
       .subscribe(response => {
         this.authService.setSession(response);
         let role = this.authService.getRole();
-        let email = this.authService.getEmail();
         if (role === 'PATIENT') {
-          this.patientService.getPatientByEmail(email).subscribe(res => {
-            this.patient = res;
-            if(this.patient.blocked == 'true'){
-              this.toast.error({ detail: 'You are blocked!', duration: 5000 });
-            }
-          });
           this.router.navigate(['/home']);
         } else {
           this.toast.error({ detail: 'There is no patient with this info!', summary: "Please try again.", duration: 5000 });
