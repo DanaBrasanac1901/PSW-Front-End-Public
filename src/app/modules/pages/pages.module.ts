@@ -10,6 +10,7 @@ import { MatTableModule } from '@angular/material/table';
 import { RoleGuardService } from 'src/app/auth/role-guard.service';
 import { PatientHomepageComponent } from '../pages/patient-homepage/patient-homepage/patient-homepage.component';
 import { InputFeedbackComponent } from 'src/app/modules/hospital/input-feedback/input-feedback.component';
+import { AdvertisementCarouselComponent } from './advertisement-carousel/advertisement-carousel/advertisement-carousel.component';
 
 
 const routes: Routes = [
@@ -27,7 +28,8 @@ const routes: Routes = [
     RegistrationComponent,
     LoginComponent,
     PatientHomepageComponent,
-    InputFeedbackComponent
+    InputFeedbackComponent,
+    AdvertisementCarouselComponent
    
   ],
   imports: [

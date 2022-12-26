@@ -1,0 +1,18 @@
+.carousel_container {
+    width:15rem;
+    height: 15rem;
+    background: white;
+    display: flex;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+}
+
+.carousel_container div {
+    min-width: 15rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 10rem;
+    color:rgb(97, 158, 212);
+    scroll-snap-align: center;
+}

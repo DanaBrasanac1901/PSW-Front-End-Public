@@ -3,17 +3,10 @@
 
 <body>
   <div class="container">
-    <!--
-
-    <div class="toolbar">
-    <app-toolbar></app-toolbar>
-  </div>
-    -->
-    <div class="grid">
-
-      <div class="header-grid">
+    
+    <div class="grid1">
         <h1>HealthcareMD</h1>
-        <p>
+        <p style="margin-top:6%">
           Our mission is to provide compassionate patient care with seamless
           coordination and to advance medicine through unrivaled education,
           research, and outreach in the many diverse communities we serve.
@@ -22,9 +15,7 @@
           scientific advancements, forward-thinking leadership, and collaborative approach to offering exceptional
           patient care in the many unique communities we serve – while maintaining our national and international prominence.
         </p>
-      </div>
 
-      <div class="table-grid">
 
         <button class="btn" id="create-feedback-button" (click)="onPress()">Input feedback</button>
 
@@ -41,17 +32,19 @@
           <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
           <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
         </table>
-
       </div>
+
+      <div class="grid2">
+
+        <advertisement-carousel></advertisement-carousel>
+          <div id="comp-render" *ngIf="display" class="input-field">
+            <input-feedback></input-feedback>
+          </div>
+      </div>
+
+
     </div>
 
-    <div class="input-grid">
-      <div id="comp-render" *ngIf="display" class="input-field">
-        <input-feedback></input-feedback>
-      </div>
-    </div>
-
-  </div>
 
   
 </body>
