@@ -33,4 +33,8 @@ export class ToolbarComponent implements OnInit {
   ProfileClick() {
     this.router.navigate(['/profile']);
   }
+
+  HealthMessurementsClick() {
+    this.router.navigate(['/health-messurements']);
+  }
 }

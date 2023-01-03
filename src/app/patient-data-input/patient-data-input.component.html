@@ -1,0 +1,28 @@
+<body>
+    <h3>Health mesurements</h3>
+    <table>
+        <tr>
+            <th>Weight:</th>
+            <td><input [(ngModel)]="patientData.weight" type="number"></td>
+        </tr>
+        <tr>
+            <th>Blood pressure: (Upper, lower)</th>
+            <td><input [(ngModel)]="patientData.bloodPressureUpper" type="number"><input [(ngModel)]="patientData.bloodPressureUpper" type="text"></td>
+        </tr>
+        <tr>
+            <th>Heart beat:</th>
+            <td><input [(ngModel)]="patientData.heartBeat" type="number"></td>
+        </tr>
+        <tr>
+            <th>Temperature:</th>
+            <td><input [(ngModel)]="patientData.temperature" type="number"></td>
+        </tr>
+        <tr>
+            <th>Blood sugar level:</th>
+            <td><input [(ngModel)]="patientData.bloodSugarLevel" type="number"></td>
+        </tr>
+        <tr>
+            <button (click)="submitData()">Submit data</button>
+        </tr>
+    </table>
+</body>
