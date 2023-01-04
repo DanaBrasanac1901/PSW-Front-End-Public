@@ -10,7 +10,7 @@ import { RoleGuardService } from 'src/app/auth/role-guard.service';
 import { ScheduleRegularComponent } from './schedule-regular/schedule-regular/schedule-regular.component';
 import { MatSortModule } from "@angular/material/sort";
 import { PatientProfileComponent } from './patient-profile/patient-profile.component';
-import { PatientDataInputComponent } from "src/app/patient-data-input/patient-data-input.component";
+import { PatientHealthMeasurementsComponent } from './patient-health-measurements/patient-health-measurements.component';
 
 const routes: Routes = [
   {
@@ -20,7 +20,7 @@ const routes: Routes = [
   { path: 'schedule-regular', component: ScheduleRegularComponent },
   { path: 'schedule-suggestion', component: SheduleSuggestionComponent },
   { path: 'profile', component: PatientProfileComponent },
-  { path: 'health-messurements', component: PatientDataInputComponent}
+  { path: 'health-messurements', component: PatientHealthMeasurementsComponent}
 ];
 
 @NgModule({
@@ -29,6 +29,7 @@ const routes: Routes = [
     SheduleSuggestionComponent,
     ScheduleRegularComponent,
     PatientProfileComponent,
+    PatientHealthMeasurementsComponent,
     
   ],
   imports: [

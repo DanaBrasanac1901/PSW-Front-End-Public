@@ -34,7 +34,7 @@ export class ToolbarComponent implements OnInit {
     this.router.navigate(['/profile']);
   }
 
-  HealthMessurementsClick() {
+  HealthMeasurementsClick() {
     this.router.navigate(['/health-messurements']);
   }
 }

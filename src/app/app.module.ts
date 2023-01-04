@@ -19,15 +19,11 @@ import { ToolbarComponent } from "./modules/pages/toolbar/toolbar/toolbar.compon
 import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatSortModule } from "@angular/material/sort";
 import { DatePipe } from "@angular/common";
-import { PatientDataInputComponent } from './patient-data-input/patient-data-input.component';
-
-
 
 @NgModule({
   declarations: [
     AppComponent,
-    ToolbarComponent,
-    PatientDataInputComponent
+    ToolbarComponent
   ],
   imports: [
     BrowserModule,

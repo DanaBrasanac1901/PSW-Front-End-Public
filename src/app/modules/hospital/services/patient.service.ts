@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Patient } from '../model/patient.model';
 import { Doctor } from '../model/doctor.model';
-import { PatientData } from '../model/patient-data.model';
+
 
 @Injectable({
   providedIn: 'root'
@@ -47,7 +47,7 @@ export class PatientService {
     return this.http.get<Doctor[]>(this.apiHost + 'api/patients/minimal-patients-doctor' , { headers: this.headers });
   }
 
-  submitPatientData(patientData: any): Observable<any> {
-    return this.http.post<PatientData>(this.apiHost + 'api/patients/submitPatientData', patientData, { headers: this.headers });
+  submitPatientHealthMeasurements(dto: any): Observable<any> {
+    return this.http.post<any>(this.apiHost + 'api/patientHealthMeasurements/SubmitPatientHealthMeasurements', dto, { headers: this.headers });
   }
 }
