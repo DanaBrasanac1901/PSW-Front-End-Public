@@ -44,6 +44,10 @@ export class ScheduleRegularComponent implements OnInit {
   pipe = new DatePipe('en-US');
 
   ngOnInit(): void {
+
+    this.eventService.startClick(Date.now()).subscribe(res => {
+      console.log(res);
+    });
     let ChangedFormat = this.pipe.transform(this.today, 'YYYY-MM-dd');
     this.changedDate = ChangedFormat;
     console.log(this.changedDate);

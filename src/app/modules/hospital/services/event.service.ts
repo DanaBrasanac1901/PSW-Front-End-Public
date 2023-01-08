@@ -14,7 +14,7 @@ export class EventService {
 
   constructor(private http: HttpClient) { }
 
-aggregate(timeStamp:any): Observable<any> {
+startClick(timeStamp:any): Observable<any> {
     return this.http.post<any>(this.apiHost + 'api/Event/patient/start' ,timeStamp, { headers: this.headers });
   }
 
