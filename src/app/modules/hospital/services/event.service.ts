@@ -14,19 +14,19 @@ export class EventService {
 
   constructor(private http: HttpClient) { }
 
-startClick(timeStamp:any): Observable<any> {
-    return this.http.post<any>(this.apiHost + 'api/Event/patient/start' ,timeStamp, { headers: this.headers });
+startClick(): Observable<any> {
+    return this.http.post<any>(this.apiHost + 'api/Event/patient/start ', { headers: this.headers });
   }
 
-backClick(timeStamp:any): Observable<any> {
-    return this.http.post<any>(this.apiHost + 'api/Event/patient/back' ,timeStamp, { headers: this.headers });
+backClick(): Observable<any> {
+    return this.http.post<any>(this.apiHost + 'api/Event/patient/back' , { headers: this.headers });
   }
 
-nextClick(timeStamp:any): Observable<any> {
-    return this.http.post<any>(this.apiHost + 'api/Event/patient/next' ,timeStamp, { headers: this.headers });
+nextClick(): Observable<any> {
+    return this.http.post<any>(this.apiHost + 'api/Event/patient/next' , { headers: this.headers });
   }
-scheduleClick(timeStamp:any): Observable<any> {
-    return this.http.post<any>(this.apiHost + 'api/Event/patient/schedule' ,timeStamp, { headers: this.headers });
+scheduleClick(): Observable<any> {
+    return this.http.post<any>(this.apiHost + 'api/Event/patient/schedule' , { headers: this.headers });
   }
 
 }

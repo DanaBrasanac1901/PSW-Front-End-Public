@@ -45,7 +45,7 @@ export class ScheduleRegularComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.eventService.startClick(Date.now()).subscribe(res => {
+    this.eventService.startClick().subscribe(res => {
       console.log(res);
     });
     let ChangedFormat = this.pipe.transform(this.today, 'YYYY-MM-dd');
@@ -67,7 +67,7 @@ export class ScheduleRegularComponent implements OnInit {
 
   schedule(){
     //var currentTimeInSeconds=Math.floor(Date.now()/1000); 
-    this.eventService.scheduleClick(Date.now()).subscribe(res => {
+    this.eventService.scheduleClick().subscribe(res => {
       console.log(res);
     });
 
@@ -93,7 +93,7 @@ export class ScheduleRegularComponent implements OnInit {
   send(){
 
     //var currentTimeInSeconds=Math.floor(Date.now()/1000); 
-    this.eventService.nextClick(Date.now()).subscribe(res => {
+    this.eventService.nextClick().subscribe(res => {
       console.log(res);
     });
     
@@ -134,7 +134,7 @@ export class ScheduleRegularComponent implements OnInit {
       this.showTable=false;
       //var currentTimeInSeconds=Math.floor(Date.now()/1000); 
 
-      this.eventService.backClick(Date.now()).subscribe(res => {
+      this.eventService.backClick().subscribe(res => {
         console.log(res);
       });
     } else this.router.navigate(['/appt-view']);
