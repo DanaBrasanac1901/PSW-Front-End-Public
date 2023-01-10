@@ -16,7 +16,7 @@ export class AdvertisementService {
 
 
 getAdvertisements(): Observable<string[]> {
-    return this.http.get<string[]>(this.apiHost + 'api/Advertisement' , { headers: this.headers });
+    return this.http.get<string[]>(this.apiHost + 'api/Ad' , { headers: this.headers });
   }
 
 }

@@ -1,14 +1,15 @@
 .carousel_container {
-    width:15rem;
-    height: 15rem;
-    background: white;
-    display: flex;
-    overflow-x: scroll;
-    scroll-snap-type: x mandatory;
+  width: 25rem;
+  height: 25rem;
+  background: white;
+  display: flex;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
 }
 
 .carousel_container div {
-    min-width: 15rem;
+    min-width: 25rem;
     display: flex;
     justify-content: center;
     align-items: center;
