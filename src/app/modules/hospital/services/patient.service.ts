@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Patient } from '../model/patient.model';
 import { Doctor } from '../model/doctor.model';
+import { PatientDTO } from '../model/patientDTO.model';
 
 @Injectable({
   providedIn: 'root'
@@ -27,8 +28,8 @@ export class PatientService {
   }
 
 
-  getPatientByEmail(email: string): Observable<Patient> {
-    return this.http.get<Patient>(this.apiHost + 'api/Patients/getByEmail/' + email, { headers: this.headers });
+  getPatientByEmail(email: string): Observable<PatientDTO> {
+    return this.http.get<PatientDTO>(this.apiHost + 'api/Patients/getByEmail/' + email, { headers: this.headers });
   }
 
   updatePatient(user: any): Observable<any> {

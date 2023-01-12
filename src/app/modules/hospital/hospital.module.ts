@@ -10,6 +10,7 @@ import { RoleGuardService } from 'src/app/auth/role-guard.service';
 import { ScheduleRegularComponent } from './schedule-regular/schedule-regular/schedule-regular.component';
 import { MatSortModule } from "@angular/material/sort";
 import { PatientProfileComponent } from './patient-profile/patient-profile.component';
+import {MatListModule} from '@angular/material/list';
 
 const routes: Routes = [
   {
@@ -36,7 +37,9 @@ const routes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forChild(routes),
-    MatButtonModule
+    MatButtonModule,
+    MatListModule
+  
   ],
   exports: [
     RouterModule,

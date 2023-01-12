@@ -12,3 +12,82 @@ body {
     margin: 0;
     padding: 0;
   }
+
+  
+.mat-card-title {
+  font-size: 30px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  text-align: center;
+}
+
+.mat-card-content {
+  font-size: 18px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+p {
+  margin: 40px 20px 20px 20px;
+}
+
+.mat-card {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+  margin-bottom: 20px;
+  padding: 20px;
+  background-color: rgba(50, 101, 131, 0.551);
+  color:white;
+  border: #DCD6CC 1px solid;
+}
+
+.personal-info{
+  width: 30%;
+  margin-left:15%;
+}
+
+.row_container {
+  display: flex;
+  flex-flow: row;
+  gap:50px;
+  justify-content: baseline;
+}
+
+.col_container {
+  display: flex;
+  flex-flow: column;
+  gap:5px;
+
+}
+
+
+mat-list {
+  margin-top: 3%;
+  border-radius: 5px;
+  font-size: 12px;
+  font-weight: normal;
+  border: none;
+  border-collapse: collapse;
+  width: 150%;
+  height: auto;
+  white-space: nowrap;
+  background-color: white;
+  line-height: 1em;
+  background-color: rgba(9, 59, 89, 0.551);
+  color:white;
+
+}
+
+mat-list-item{
+  border-bottom: 1px solid rgb(173, 189, 198);
+  color:white;
+  text-align: center;
+}
+
+h3 {
+  font-size: 200%;
+  color: rgb(31,82,109);
+  font-weight:200;
+  font-stretch:ultra-condensed;
+}
