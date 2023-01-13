@@ -1,0 +1,108 @@
+<body>
+    <div class="container">
+        <h1>Insert your health measurements:</h1>
+        <form (ngSubmit)="onSubmit(healthMeasurementsForm)" #healthMeasurementsForm="ngForm">
+            <table>
+                <tr>
+                    <td><label for="weight">Weight:</label></td>
+                    <td>
+                        <input 
+                        type="text"
+                        id="weight"
+                        ngModel
+                        name="weight"
+                        required
+                        pattern="\d+[\.\d+]*"
+                        #weight="ngModel">
+                        <br/>
+                        <span *ngIf="!weight.valid && weight.touched">You have to input a positive decimal number.</span>
+                    </td>
+                    
+                </tr>
+                <tr>
+                    <td><label for="upperBloodPressure">Upper blood pressure:</label></td>
+                    <td>
+                        <input 
+                        type="text"
+                        id="upperBloodPressure"
+                        ngModel
+                        name="upperBloodPressure"
+                        required
+                        pattern="\d+"
+                        #upperBloodPressure="ngModel">
+                        <br/>
+                        <span *ngIf="!upperBloodPressure.valid && upperBloodPressure.touched">You have to input a positive number.</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="lowerBloodPressure">Lower blood pressure:</label></td>
+                    <td>
+                        <input 
+                        type="text"
+                        id="lowerBloodPressure"
+                        ngModel
+                        name="lowerBloodPressure"
+                        required
+                        pattern="\d+"
+                        #lowerBloodPressure="ngModel">
+                        <br/>
+                        <span *ngIf="!lowerBloodPressure.valid && lowerBloodPressure.touched">You have to input a positive number.</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="heartbeat">Heartbeat:</label></td>
+                    <td>
+                        <input 
+                        type="text"
+                        id="heartbeat"
+                        ngModel
+                        name="heartbeat"
+                        required
+                        pattern="\d+"
+                        #heartbeat="ngModel">
+                        <br/>
+                        <span *ngIf="!heartbeat.valid && heartbeat.touched">You have to input a positive number.</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="temperature">Temperature:</label></td>
+                    <td>
+                        <input 
+                        type="text"
+                        id="temperature"
+                        ngModel
+                        name="temperature"
+                        required
+                        pattern="\d+[\.\d+]*"
+                        #temperature="ngModel">
+                        <br/>
+                        <span *ngIf="!temperature.valid && temperature.touched">You have to input a positive decimal number.</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="bloodSugarLevel">Blood sugar level:</label></td>
+                    <td>
+                        <input 
+                        type="text"
+                        id="bloodSugarLevel"
+                        ngModel
+                        name="bloodSugarLevel"
+                        required
+                        pattern="\d+[\.\d+]*"
+                        #bloodSugarLevel="ngModel">
+                        <br/>
+                        <span *ngIf="!bloodSugarLevel.valid && bloodSugarLevel.touched">You have to input a positive decimal number.</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="button-row">
+                        <button
+                        type="submit"
+                        [disabled]="!healthMeasurementsForm.valid"
+                        >Submit data</button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</body>

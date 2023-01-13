@@ -1,0 +1,44 @@
+input.ng-invalid.ng-touched {
+    border: 1px solid red;
+}
+.container {
+    margin: 0 auto;
+    width: 30%;
+    border: 1px solid black;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 10px 10px 8px #888888;
+    border-radius: 15px;
+}
+
+table {
+    font-size: 20px;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.button-row {
+    text-align: center;
+}
+td {
+    margin-bottom: 10px;
+}
+
+tr {
+    height: 70px;
+}
+
+input {
+    font-size: 15px;
+    height: 25px;
+}
+
+span {
+    color: red;
+    font-size: 10px;
+}
+
+h1 {
+    margin-top: 20px;
+}

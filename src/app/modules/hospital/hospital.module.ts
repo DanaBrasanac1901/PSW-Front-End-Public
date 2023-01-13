@@ -11,6 +11,7 @@ import { ScheduleRegularComponent } from './schedule-regular/schedule-regular/sc
 import { MatSortModule } from "@angular/material/sort";
 import { PatientProfileComponent } from './patient-profile/patient-profile.component';
 import {MatListModule} from '@angular/material/list';
+import { PatientHealthMeasurementsComponent } from './patient-health-measurements/patient-health-measurements.component';
 
 const routes: Routes = [
   {
@@ -19,7 +20,8 @@ const routes: Routes = [
   },
   { path: 'schedule-regular', component: ScheduleRegularComponent },
   { path: 'schedule-suggestion', component: SheduleSuggestionComponent },
-  { path: 'profile', component: PatientProfileComponent }
+  { path: 'profile', component: PatientProfileComponent },
+  { path: 'health-messurements', component: PatientHealthMeasurementsComponent}
 ];
 
 @NgModule({
@@ -28,6 +30,7 @@ const routes: Routes = [
     SheduleSuggestionComponent,
     ScheduleRegularComponent,
     PatientProfileComponent,
+    PatientHealthMeasurementsComponent,
     
   ],
   imports: [

@@ -5,6 +5,7 @@ import { Patient } from '../model/patient.model';
 import { Doctor } from '../model/doctor.model';
 import { PatientDTO } from '../model/patientDTO.model';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -38,5 +39,9 @@ export class PatientService {
 
   getDoctors(): Observable<Doctor[]> {
     return this.http.get<Doctor[]>(this.apiHost + 'api/Patients/minimal-patients-doctor' , { headers: this.headers });
+  }
+
+  submitPatientHealthMeasurements(dto: any): Observable<any> {
+    return this.http.post<any>(this.apiHost + 'api/patientHealthMeasurements/SubmitPatientHealthMeasurements', dto, { headers: this.headers });
   }
 }
