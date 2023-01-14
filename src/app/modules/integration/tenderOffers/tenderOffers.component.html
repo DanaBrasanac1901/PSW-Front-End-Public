@@ -1,0 +1,63 @@
+<body>
+    <form>
+      <table class="card">
+        <tr>
+          <td align="center">
+            <div>
+                <p>Amount of A type blood in liters:</p>
+                <h1 type="number" name="amountOfA">{{tender.amountOfA}}</h1>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td align="center">
+            <div>
+              <p>Amount of B type blood in liters:</p>
+              <h1 type="number" name="amountOfB">{{tender.amountOfB}}</h1>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td align="center">
+            <div>
+              <p>Amount of AB type blood in liters:</p>
+              <h1 type="number" name="amountOfAB">{{tender.amountOfAB}}</h1>
+
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td align="center">
+            <div>
+              <p >Amount of O type blood in liters::</p>
+              <h1 type="number" name="amountOfO">{{tender.amountOfO}}</h1>
+
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <tr>
+            <td align="center">
+              <div>
+                <p>Expiration date:</p>
+                <h1 type="number" name="expiration">{{tender.expiration}}</h1>
+  
+              </div>
+            </td>
+          </tr>
+          <tr>
+          <td align="center">
+            <div>
+              <p>Price:</p>
+              <input type="number" name="price" class="block" [(ngModel)]="offer.price">
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td align="center">
+            <button class="btn" (click)="create()" >Create tender</button>
+          </td>
+        </tr>
+      </table>
+    </form>
+  </body>

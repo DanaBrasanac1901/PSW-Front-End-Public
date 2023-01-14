@@ -1,0 +1,29 @@
+.bg{
+  background-image: url("background.jpg");
+  background-size:auto;
+  background-color: #cccccc;
+  position:absolute;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0; 
+    margin: 0 auto; 
+}
+.card {
+  background: radial-gradient(circle, white,skyblue);
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  width: 20%;
+  margin-top: 5%;
+  margin-right: 10px;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.8);
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+}
+
