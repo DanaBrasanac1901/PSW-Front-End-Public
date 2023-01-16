@@ -8,6 +8,7 @@ import { AppointmentService } from '../../services/appointment.service';
 import { Router } from '@angular/router';
 import { MatSort } from '@angular/material/sort';
 import { DatePipe } from '@angular/common';
+import { EventService } from '../../services/event.service';
 
 @Component({
   selector: 'app-schedule-regular',
@@ -34,6 +35,7 @@ export class ScheduleRegularComponent implements OnInit {
   constructor(private doctorService:DoctorService,
               private toast:NgToastService,
               private apptService:AppointmentService,
+              private eventService:EventService,
               private router:Router,
               private datePipe:DatePipe) { }
 
@@ -42,12 +44,17 @@ export class ScheduleRegularComponent implements OnInit {
   pipe = new DatePipe('en-US');
 
   ngOnInit(): void {
+
+    this.eventService.startClick().subscribe(res => {
+      console.log(res);
+    });
     let ChangedFormat = this.pipe.transform(this.today, 'YYYY-MM-dd');
     this.changedDate = ChangedFormat;
     console.log(this.changedDate);
   }
 
   loadSpecialty(){
+    console.log(this.selectedSpecialty);
     if (this.selectedSpecialty!=''){
       this.doctorService.getBySpecialty(this.selectedSpecialty).subscribe(res => {
         this.doctors=res;
@@ -59,6 +66,11 @@ export class ScheduleRegularComponent implements OnInit {
   }
 
   schedule(){
+    //var currentTimeInSeconds=Math.floor(Date.now()/1000); 
+    this.eventService.scheduleClick().subscribe(res => {
+      console.log(res);
+    });
+
     this.selectedAppt.patientId=localStorage.getItem('idByRole');
     this.apptService.checkIfAvailable(this.selectedAppt).subscribe(res => {
       //ako je odgovor 200 Ok onda nastavi
@@ -79,6 +91,12 @@ export class ScheduleRegularComponent implements OnInit {
   }
 
   send(){
+
+    //var currentTimeInSeconds=Math.floor(Date.now()/1000); 
+    this.eventService.nextClick().subscribe(res => {
+      console.log(res);
+    });
+    
     if (this.checkParameters()) {
       this.appointment.patientId=localStorage.getItem('idByRole');
       
@@ -111,8 +129,14 @@ export class ScheduleRegularComponent implements OnInit {
   }
 
   goBack(){
+
     if(this.showTable){
       this.showTable=false;
+      //var currentTimeInSeconds=Math.floor(Date.now()/1000); 
+
+      this.eventService.backClick().subscribe(res => {
+        console.log(res);
+      });
     } else this.router.navigate(['/appt-view']);
 
   }

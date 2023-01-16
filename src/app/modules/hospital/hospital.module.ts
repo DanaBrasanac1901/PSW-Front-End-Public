@@ -9,6 +9,9 @@ import { SheduleSuggestionComponent } from "./schedule-suggestion/shedule-appoin
 import { RoleGuardService } from 'src/app/auth/role-guard.service';
 import { ScheduleRegularComponent } from './schedule-regular/schedule-regular/schedule-regular.component';
 import { MatSortModule } from "@angular/material/sort";
+import { PatientProfileComponent } from './patient-profile/patient-profile.component';
+import {MatListModule} from '@angular/material/list';
+import { PatientHealthMeasurementsComponent } from './patient-health-measurements/patient-health-measurements.component';
 
 const routes: Routes = [
   {
@@ -17,6 +20,8 @@ const routes: Routes = [
   },
   { path: 'schedule-regular', component: ScheduleRegularComponent },
   { path: 'schedule-suggestion', component: SheduleSuggestionComponent },
+  { path: 'profile', component: PatientProfileComponent },
+  { path: 'health-messurements', component: PatientHealthMeasurementsComponent}
 ];
 
 @NgModule({
@@ -24,6 +29,8 @@ const routes: Routes = [
     AppointmentViewComponent,
     SheduleSuggestionComponent,
     ScheduleRegularComponent,
+    PatientProfileComponent,
+    PatientHealthMeasurementsComponent,
     
   ],
   imports: [
@@ -33,7 +40,9 @@ const routes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forChild(routes),
-    MatButtonModule
+    MatButtonModule,
+    MatListModule
+  
   ],
   exports: [
     RouterModule,

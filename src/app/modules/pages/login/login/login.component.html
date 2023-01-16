@@ -14,7 +14,7 @@
           <td align="center">
             <div class="row">
               <p class="block">Password:</p>
-              <input type="password" name="pasword" class="block" [(ngModel)]="user.password">
+              <input type="password" name="password" class="block" [(ngModel)]="user.password">
             </div>
           </td>
         </tr>
@@ -22,10 +22,9 @@
   
         <tr>
           <td align="center">
-            <button class="btn" (click)="login()">Login</button>
+            <button class="btn" name="log-in-button" (click)="login()">Login</button>
           </td>
         </tr>
       </table>
     </form>
   </body>
-  

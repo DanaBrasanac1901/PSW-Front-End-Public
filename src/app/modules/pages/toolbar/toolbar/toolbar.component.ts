@@ -30,4 +30,11 @@ export class ToolbarComponent implements OnInit {
     this.router.navigate(['/appt-view']);
   }
 
+  ProfileClick() {
+    this.router.navigate(['/profile']);
+  }
+
+  HealthMeasurementsClick() {
+    this.router.navigate(['/health-messurements']);
+  }
 }

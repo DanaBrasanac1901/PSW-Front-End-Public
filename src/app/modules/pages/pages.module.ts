@@ -4,13 +4,14 @@ import { AppRoutingModule } from 'src/app/app-routing.module';
 import { HomeComponent } from './home/home.component';
 import { RouterModule, Routes } from "@angular/router";
 import { RegistrationComponent } from './registration/registration.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule } from "@angular/forms";
 import { LoginComponent } from './login/login/login.component';
 import { MatTableModule } from '@angular/material/table';
 import { RoleGuardService } from 'src/app/auth/role-guard.service';
 import { PatientHomepageComponent } from '../pages/patient-homepage/patient-homepage/patient-homepage.component';
 import { InputFeedbackComponent } from 'src/app/modules/hospital/input-feedback/input-feedback.component';
-
+import { AdvertisementCarouselComponent } from './advertisement-carousel/advertisement-carousel/advertisement-carousel.component';
+import { MatSelectModule } from '@angular/material/select';
 
 const routes: Routes = [
   { path: 'register', component: RegistrationComponent },
@@ -27,7 +28,8 @@ const routes: Routes = [
     RegistrationComponent,
     LoginComponent,
     PatientHomepageComponent,
-    InputFeedbackComponent
+    InputFeedbackComponent,
+    AdvertisementCarouselComponent
    
   ],
   imports: [
@@ -35,6 +37,7 @@ const routes: Routes = [
     AppRoutingModule,
     FormsModule,
     MatTableModule,
+    MatSelectModule,
     RouterModule.forChild(routes),
   ]
 })

@@ -26,13 +26,15 @@ export class InputFeedbackComponent implements OnInit {
     }
     console.log(this.feedback.text);
 
+    this.feedback.patientId=parseInt(localStorage.getItem('idByRole'));
+    console.log(this.feedback.patientId);
     this.feedbackService.createFeedback(this.feedback).subscribe(res => {
       this.display = true;
     });
   }
 
   invalid() {
-    this.toast.error({detail:'Comment cannot be empty',summary:"Please complete the form.",duration:5000});
+    this.toast.error({detail:'Comment cannot be empty',summary:"Please complete the form.",duration:3000});
   }
 
   close() {

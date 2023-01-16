@@ -1,0 +1,27 @@
+<body>
+    <div class="row_container">
+    <div class="personal-info">
+        <mat-card>
+          <mat-card-title>{{patient.name}} {{patient.surname}}</mat-card-title>
+          <mat-card-content>
+            <p> Email: {{patient.email}}</p>
+            <p> Address: {{patient.address}}</p>
+            <p> Gender: {{patient.gender}}</p>
+            <p> Jmbg: {{patient.jmbg}}</p>
+            <p> Age: {{patient.age}}</p>
+            <p> Blood type: {{patient.bloodType}}</p>
+            <p> Chosen doctor: {{patient.chosenDoctor}}</p>
+          </mat-card-content>
+        </mat-card>
+    </div>
+
+    <div class="col_container" style="margin-top:3%">
+    <h3>Alergije</h3>
+    <mat-list>
+        <mat-list-item *ngFor="let allergy of allergies" style="color:white;text-align: center">{{ allergy }}</mat-list-item>
+     </mat-list>
+    </div>
+       
+</div>
+    
+</body>

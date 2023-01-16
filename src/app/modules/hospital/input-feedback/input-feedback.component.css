@@ -7,16 +7,15 @@ body {
   font-family: 'Varela Round', sans-serif;
 }
 .login_container {
-  margin: 5% auto;
   border-radius: 15px;
-  width: 30%;
-  height: 50%;
+  width: 40%;
+  height: 40%;
   background-color: rgb(31,82,109);
   background-image: linear-gradient(to right, rgb(127, 175, 201), rgb(40, 103, 136));
   border: 1px solid;
   border-color: rgb(217, 214, 211);
   color: rgb(94,111,120);
-  line-height: 4em;
+  line-height: 3em;
 }
 
 .credential_labels {

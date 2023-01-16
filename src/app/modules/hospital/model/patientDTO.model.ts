@@ -1,28 +1,29 @@
-export class Patient {
+export class PatientDTO {
+    id:number=0;
     email: string = '';
     name:string='';
     surname:string='';
-    adress:string='';
-    gender:number=0;
+    address:string='';
+    gender:string='';
     jmbg:string='';
     age:number=0;
-    bloodType: number = 0;
+    bloodType: string='';
     allergies: string[] = [];
-    doctorId: string = '';
-    blocked: string='';
+    chosenDoctor:string='';
 
 
     public constructor(obj?: any) {
       if (obj) {
+        this.id=obj.id;
         this.email = obj.email;
         this.name = obj.name;
-        this.adress = obj.adress;
+        this.address = obj.adress;
         this.gender = obj.gender;
         this.jmbg = obj.jmbg;
         this.age = obj.age;
         this.bloodType = obj.bloodType;
         this.allergies = obj.allergies;
-        this.doctorId = obj.doctorId;
+        this.chosenDoctor = obj.chosenDoctor;
       }
     }
   }

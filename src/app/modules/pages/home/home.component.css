@@ -40,6 +40,7 @@ p {
   grid-template-areas:
     "header-grid"
     "table-grid";
+  margin-top:5%;
 }
 
 .header-grid {
@@ -61,30 +62,40 @@ p {
 
 .container {
   display: grid;
-  grid-template-columns: 1fr 0.5fr;
+  grid-template-columns: 1fr 0.5fr ;
   grid-template-rows: 7% 93%;
   gap: 0px 0px;
   grid-template-areas:
     "toolbar toolbar"
-    "grid input-grid";
+    "grid ads";
 }
 
 .toolbar {
   grid-area: toolbar;
+  min-height: 70px;
+  min-width: 100%;
   background-image: linear-gradient(to bottom, rgb(196, 196, 196), white);
   display: grid;
   grid-template-columns: 0.05fr 0.2fr 0.1fr;
   gap: 10px;
+  position: fixed;
   grid-template-areas:
     "logo-grid nameToolbar-grid user-grid"
+  
 }
 
 .input-grid {
   grid-area: input-grid;
 }
 
+.ads{
+  grid-area: ads;
+  margin-top:10%;
+  margin-left:-50%;
+}
+
 .nameToolbar-grid {
-    margin-top:17px;
+    margin-top:20px;
   grid-area: nameToolbar-grid;
   font-family: "OpenSans", sans-serif;
   color: rgb(94,111,120);
@@ -93,6 +104,7 @@ p {
 
 .logo-grid {
     margin-left:100px;
+    margin-top:5px;
   height:55px;
   width:55px;
   grid-area: logo-grid;
@@ -103,11 +115,11 @@ p {
 }
 
 .user-grid {
-    margin-left:1000px;
+    margin-left:1050px;
   grid-area: user-grid;
   height: 45px;
   width: 50px;
-  margin-top:5px;
+  margin-top:10px;
   background: transparent;
   background-image: url(/assets/images/user.png);
   background-size: 50px;
@@ -260,7 +272,7 @@ p {
   height:80px;
   background-color: white;
   border-radius: 10px;
-  margin-left:82%;
+  margin-left:84%;
   margin-top:5%;
 } 
 /*strelica*/
@@ -276,14 +288,13 @@ p {
 }
 
 ul{
-  margin-top:0;
   margin-left:-24%;
   list-style: none;
 }
 
 li{
   vertical-align: middle;
-  height: 35px;
+   height: 20px; 
   color: rgb(159, 175, 184);
   text-align: center;
 }
