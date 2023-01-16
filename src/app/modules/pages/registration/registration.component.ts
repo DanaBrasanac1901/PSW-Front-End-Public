@@ -6,6 +6,7 @@ import { AuthService } from '../../hospital/services/auth.service';
 import { Doctor } from '../../hospital/model/doctor.model';
 import { PatientService } from '../../hospital/services/patient.service';
 
+
 @Component({
   selector: 'app-registration',
   templateUrl: './registration.component.html',
@@ -14,13 +15,10 @@ import { PatientService } from '../../hospital/services/patient.service';
 export class RegistrationComponent implements OnInit {
   
   public user=new RegDTO();
-  public allergies=[
-    {name:"polen",checked:false},
-    {name:"grinje",checked:false}
-  ]
+  public allergies: string[] = [];
   public bloodTypes=['A','B','AB','O'];
   
-  public selectedAllergies:any[]=[];
+  public selectedAllergies:string[]=[];
   public doctors: Doctor[]=[];
 
   constructor(private toast: NgToastService, private authService: AuthService, private patientService:PatientService) {
@@ -31,6 +29,9 @@ export class RegistrationComponent implements OnInit {
       this.doctors = res;
      // console.log(res);
     });
+    this.patientService.getAllergies().subscribe(res => {
+      this.allergies = res;
+    })
   }
 
   post()  {
@@ -83,9 +84,5 @@ export class RegistrationComponent implements OnInit {
     this.displayAllergies=false;
   }
 
-  addAllergies(){
-    this.selectedAllergies=this.allergies.filter(allergy=>allergy.checked);
-    //console.log(this.selectedAllergies);
-  }
-
+  
 }

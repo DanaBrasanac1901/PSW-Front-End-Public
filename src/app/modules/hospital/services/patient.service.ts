@@ -20,6 +20,11 @@ export class PatientService {
     return this.http.get<Patient[]>(this.apiHost + 'api/Patients', { headers: this.headers });
   }
 
+  getAllergies(): Observable<string[]> {
+    return this.http.get<string[]>(this.apiHost + 'api/Patients/Allergies', { headers: this.headers });
+  }
+
+
   getPatient(id: number): Observable<Patient> {
     return this.http.get<Patient>(this.apiHost + 'api/Patients/' + id, { headers: this.headers });
   }

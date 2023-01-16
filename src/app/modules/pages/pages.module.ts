@@ -11,7 +11,7 @@ import { RoleGuardService } from 'src/app/auth/role-guard.service';
 import { PatientHomepageComponent } from '../pages/patient-homepage/patient-homepage/patient-homepage.component';
 import { InputFeedbackComponent } from 'src/app/modules/hospital/input-feedback/input-feedback.component';
 import { AdvertisementCarouselComponent } from './advertisement-carousel/advertisement-carousel/advertisement-carousel.component';
-
+import { MatSelectModule } from '@angular/material/select';
 
 const routes: Routes = [
   { path: 'register', component: RegistrationComponent },
@@ -37,6 +37,7 @@ const routes: Routes = [
     AppRoutingModule,
     FormsModule,
     MatTableModule,
+    MatSelectModule,
     RouterModule.forChild(routes),
   ]
 })
