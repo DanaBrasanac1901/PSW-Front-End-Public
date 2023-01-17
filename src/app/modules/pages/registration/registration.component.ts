@@ -94,5 +94,13 @@ export class RegistrationComponent implements OnInit {
     this.displayAllergies=false;
   }
 
+  addAllergies(){
+    var selectedRows=this.allergiesTable.filter(allergy=>allergy.checked);
+    selectedRows.forEach(element => {
+      this.selectedAllergies.push(element.name);
+    });
+    //console.log(this.selectedAllergies);
+  }
+
   
 }
