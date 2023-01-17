@@ -35,6 +35,8 @@ export class RegistrationComponent implements OnInit {
   ngOnInit(): void {
     this.patientService.getDoctors().subscribe(res => {
       this.doctors = res;
+      // only general specialty doctors are viable
+      this.doctors=this.doctors.filter(doctor => doctor.specialty===3);
     });
     this.patientService.getAllergies().subscribe(res => {
       this.allergies = res;
@@ -61,7 +63,7 @@ export class RegistrationComponent implements OnInit {
     console.log("validno je");
     this.patientService.registerPatient(this.user)
       .subscribe(res => {
-        this.toast.success({detail:"Added patient to db!",summary:'',duration:5000});
+        this.toast.success({detail:"Activation mail sent!",summary:'Check your mailbox.',duration:5000});
     }, error=>{
       console.log(error.message);
     });
