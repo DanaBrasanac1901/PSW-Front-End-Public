@@ -23,6 +23,11 @@ export class PatientHomepageComponent implements OnInit {
   ngOnInit(): void {
     this.feedbackService.getFeedbacks().subscribe(res => {
       this.feedbacks = res.filter(feedback => feedback.approved && feedback.visibleToPublic);
+      this.feedbacks.forEach(feedback=>{if(feedback.anonymous) {
+        feedback.patientName="Anonymous";
+        feedback.patientSurname='';
+        }
+      });
       this.dataSource.data = this.feedbacks;
     });
     this.userFullName=this.authService.getName();

@@ -29,7 +29,7 @@ export class InputFeedbackComponent implements OnInit {
     this.feedback.patientId=parseInt(localStorage.getItem('idByRole'));
     console.log(this.feedback.patientId);
     this.feedbackService.createFeedback(this.feedback).subscribe(res => {
-      this.display = true;
+      this.toast.success({detail:'Comment sent for review!',duration:3000});
     });
   }
 
