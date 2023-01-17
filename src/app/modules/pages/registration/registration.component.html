@@ -109,8 +109,8 @@
             <td align="center">
               <div class="row">
                 <p class="block">Choose a doctor:</p>
-                <select [(ngModel)]="doctor" name="doctor" >
-                  <option  *ngFor="let doctor of doctors">{{doctor.name}} {{doctor.surname}}</option>
+                <select  #selectedValue name="selectedValue" id="selectedValue" [(ngModel)]="doctor" name="doctor" >
+                  <option  *ngFor="let doctor of doctors" [ngValue]="doctor">{{doctor.name}} {{doctor.surname}}</option>
                 </select>
               </div>
             </td>

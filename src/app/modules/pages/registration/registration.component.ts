@@ -21,7 +21,7 @@ export class RegistrationComponent implements OnInit {
   
   public selectedAllergies:string[]=[];
   public doctors: Doctor[]=[];
-  public doctor:Doctor;
+  public doctor:Doctor=new Doctor();
 
   public allergiesTable:Allergy[]=[];
 
