@@ -24,13 +24,16 @@ export class RegistrationComponent implements OnInit {
 
   public allergiesTable:Allergy[]=[];
 
+  public city:string='';
+  public street:string='';
+  public number:string='';
+
   constructor(private toast: NgToastService, private authService: AuthService, private patientService:PatientService) {
   }
 
   ngOnInit(): void {
     this.patientService.getDoctors().subscribe(res => {
       this.doctors = res;
-     // console.log(res);
     });
     this.patientService.getAllergies().subscribe(res => {
       this.allergies = res;
@@ -45,6 +48,7 @@ export class RegistrationComponent implements OnInit {
   }
 
   post()  {
+    this.user.address=this.street+','+this.number+','+this.city;
     this.user.allergies=this.selectedAllergies;
     
     if(!this.checkValidity()) return;
@@ -64,7 +68,7 @@ export class RegistrationComponent implements OnInit {
 
 
   checkValidity(){
-    if (this.user.email === '' || this.user.address==='' || this.user.gender==='' || this.user.jmbg==='' || this.user.name==='' || this.user.password==='') {
+    if (this.user.email === '' || this.user.address==='' || this.user.gender==='' || this.user.jmbg==='' || this.user.name==='' || this.user.password==='' || this.city==='' || this.street==='' || this.number==='') {
       this.toast.error({detail:'Required fields are empty!',summary:"Please complete the form.",duration:5000});
       return false;
     }
