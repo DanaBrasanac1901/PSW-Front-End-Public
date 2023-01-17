@@ -257,3 +257,9 @@ label:hover {
       display:flex;
   }
 
+  .row_container {
+    display: flex;
+    flex-flow: row;
+    gap:50px;
+    justify-content: baseline;
+  }

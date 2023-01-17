@@ -41,9 +41,16 @@
           </tr>
           <tr>
             <td align="center">
-              <div class="row">
-                <p class="block">Address:</p>
-                <input type="text" name="adress" class="block" [(ngModel)]="user.address">
+              <div class="row_container">
+                <p class="block">Street:</p>
+                <p class="block">Number:</p>
+                <p class="block">City:</p>
+              </div>
+              <div class="row_container" style="margin-left:2%">
+                <input type="text" name="street" class="block" style="width:80%" [(ngModel)]="street">
+                <input type="text" name="num" class="block" style="width:80%;margin-right:1%;" [(ngModel)]="number">
+                <input type="text" name="city"  class="block" style="width:80%;margin-right:1%;" [(ngModel)]="city">
+
               </div>
             </td>
           </tr>
