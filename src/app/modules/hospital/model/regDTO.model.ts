@@ -7,7 +7,7 @@ export class RegDTO {
     gender:string='';
     jmbg:string='';
     bloodType:string='';
-    doctorId='';
+    doctorId:number=0;
     allergies:string[]=[];
     age:number=0;
 

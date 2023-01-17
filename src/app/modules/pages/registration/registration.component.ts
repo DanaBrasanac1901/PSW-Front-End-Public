@@ -21,6 +21,7 @@ export class RegistrationComponent implements OnInit {
   
   public selectedAllergies:string[]=[];
   public doctors: Doctor[]=[];
+  public doctor:Doctor;
 
   public allergiesTable:Allergy[]=[];
 
@@ -50,6 +51,9 @@ export class RegistrationComponent implements OnInit {
   post()  {
     this.user.address=this.street+','+this.number+','+this.city;
     this.user.allergies=this.selectedAllergies;
+    this.user.doctorId=this.doctor.id;
+
+    console.log(this.user);
     
     if(!this.checkValidity()) return;
     console.log("validno je");
