@@ -5,6 +5,7 @@ import { User } from '../../hospital/model/user.model';
 import { AuthService } from '../../hospital/services/auth.service';
 import { Doctor } from '../../hospital/model/doctor.model';
 import { PatientService } from '../../hospital/services/patient.service';
+import { Allergy } from '../../hospital/model/allergyModel.model';
 
 
 @Component({
@@ -21,6 +22,8 @@ export class RegistrationComponent implements OnInit {
   public selectedAllergies:string[]=[];
   public doctors: Doctor[]=[];
 
+  public allergiesTable:Allergy[]=[];
+
   constructor(private toast: NgToastService, private authService: AuthService, private patientService:PatientService) {
   }
 
@@ -31,6 +34,13 @@ export class RegistrationComponent implements OnInit {
     });
     this.patientService.getAllergies().subscribe(res => {
       this.allergies = res;
+
+      this.allergies.forEach(element => {
+        var allergy=new Allergy();
+        allergy.name=element;
+        allergy.checked=false;
+        this.allergiesTable.push(allergy);
+      });
     })
   }
 

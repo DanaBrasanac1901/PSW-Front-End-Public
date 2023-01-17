@@ -119,20 +119,21 @@
       </form>
     </div>
 
-    <div class="element">
-      <div id="allergyTable_render" *ngIf="displayAllergies" style="margin-left:-10%;" >
-        <div class="header-box" >
-          <h3 class="header"style="margin-left:0; font-size: 200%; width:40%" >Select your allergies:</h3>
-        </div>
-        <div class="combo">
-          <mat-select>
-            <mat-option *ngFor="let allergy of allergies" [value]="allergy">
-              {{allergy}}
-            </mat-option>
-          </mat-select>
-        </div>
-      </div>
-    </div>
+    <table class="fl-table"  style="margin-left:0%;width:40%;">
+      <tr>
+        <th colspan="2">Allergy</th>
+      </tr>
+      <tr *ngFor="let allergy of allergiesTable">
+        <td>{{allergy.name}}</td>
+        <td><input type="checkbox" value="{{allergy.name}}" [(ngModel)]="allergy.checked"></td>
+        
+      </tr>
+      <tr >
+        <td colspan="2">
+        <button class="btn" (click)="addAllergies()">Add allergies</button>
+      </td>
+      </tr>
+    </table>
 
     </div>
     </body>
