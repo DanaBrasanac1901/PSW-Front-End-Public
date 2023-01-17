@@ -2,7 +2,7 @@
   <div class="everything">
     <div class="element">
       <div class="header-box">
-        <h3 class="header" style="width:40%;margin-left:27%">Registration</h3>
+        <h3 class="header" style="width:40%;margin-left:45%;background: none;">Registration</h3>
       </div>
 
       <form id="formlogin">
@@ -126,7 +126,7 @@
       </form>
     </div>
 
-    <table class="fl-table"  style="margin-left:0%;width:40%;">
+    <table class="fl-table"  style="margin-left:0%;width:20%;" *ngIf="displayAllergies">
       <tr>
         <th colspan="2">Allergy</th>
       </tr>
@@ -134,11 +134,6 @@
         <td>{{allergy.name}}</td>
         <td><input type="checkbox" value="{{allergy.name}}" [(ngModel)]="allergy.checked"></td>
         
-      </tr>
-      <tr >
-        <td colspan="2">
-        <button class="btn" (click)="addAllergies()">Add allergies</button>
-      </td>
       </tr>
     </table>
 

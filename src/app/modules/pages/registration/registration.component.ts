@@ -53,6 +53,8 @@ export class RegistrationComponent implements OnInit {
     this.user.allergies=this.selectedAllergies;
     this.user.doctorId=this.doctor.id;
 
+    this.addAllergies();
+
     console.log(this.user);
     
     if(!this.checkValidity()) return;
