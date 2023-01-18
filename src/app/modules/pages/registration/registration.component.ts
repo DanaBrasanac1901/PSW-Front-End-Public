@@ -61,7 +61,7 @@ export class RegistrationComponent implements OnInit {
     console.log("validno je");
     this.patientService.registerPatient(this.user)
       .subscribe(res => {
-        this.toast.success({detail:"Added patient to db!",summary:'',duration:5000});
+        this.toast.success({detail:"Email sent!",summary:'Check your mailbox.',duration:5000});
     }, error=>{
       console.log(error.message);
     });
