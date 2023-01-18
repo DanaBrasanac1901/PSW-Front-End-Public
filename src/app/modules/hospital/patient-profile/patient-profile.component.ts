@@ -23,6 +23,7 @@ export class PatientProfileComponent implements OnInit {
     this.patientService.getPatientByEmail(this.email).subscribe(res => {
       this.patient = res;
       this.allergies=this.patient.allergies;
+      this.allergies=this.allergies.map(allergy=>{return allergy.toLowerCase()});
       console.log(this.allergies);
       console.log(this.patient.name);
   });

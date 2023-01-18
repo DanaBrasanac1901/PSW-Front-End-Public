@@ -1,7 +1,7 @@
 .mat-toolbar {
   background-image: linear-gradient(to bottom, rgb(196, 196, 196), white);
   background-color: dimgray;
-  font: bold 18px;
+  font:  18px;
   font-family: 'Varela Round', sans-serif;
   color: rgb(31,82,109);
   min-height: 70px;
@@ -22,6 +22,6 @@
 
 
 .button {
-  font: bold 20px verdana;
+  font: bold 17px verdana;
   
 }

@@ -1,6 +1,6 @@
 <body>
     <div class="container" style="margin-top:2%">
-        <h1>Insert your health measurements:</h1>
+        <h1 style="font:bold;font-size:20">Insert your health measurements:</h1>
         <form (ngSubmit)="onSubmit(healthMeasurementsForm)" #healthMeasurementsForm="ngForm">
             <table>
                 <tr>
@@ -95,8 +95,8 @@
                     </td>
                 </tr>
                 <tr>
-                    <td colspan="2" class="button-row">
-                        <button
+                    <td colspan="2" >
+                        <button class="btn" style="margin-left:30%"
                         type="submit"
                         [disabled]="!healthMeasurementsForm.valid"
                         >Submit data</button>

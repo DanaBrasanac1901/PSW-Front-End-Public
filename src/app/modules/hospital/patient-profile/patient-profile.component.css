@@ -1,4 +1,9 @@
 
+@import url('https://fonts.googleapis.com/css?family=Varela+Round');
+@font-face {
+  font-family: OpenSans;
+  src: url('/assets/fonts/OpenSans-CondLight.ttf'); /* IE9 */
+}
 body {
     overflow: auto;
     font-family: 'Varela Round', sans-serif;
@@ -11,18 +16,19 @@ body {
     width: 100vw;
     margin: 0;
     padding: 0;
+    
   }
 
   
 .mat-card-title {
-  font-size: 30px;
+  font-size: 25px;
   padding-top: 30px;
   padding-bottom: 30px;
   text-align: center;
 }
 
 .mat-card-content {
-  font-size: 18px;
+  font-size: 15px;
   padding-top: 30px;
   padding-bottom: 30px;
 }
@@ -39,7 +45,9 @@ p {
   padding: 20px;
   background-color: rgba(50, 101, 131, 0.551);
   color:white;
-  border: #DCD6CC 1px solid;
+
+  box-shadow: 10px 10px 8px #818181;
+    border-radius: 15px;
 }
 
 .personal-info{
@@ -74,20 +82,23 @@ mat-list {
   white-space: nowrap;
   background-color: white;
   line-height: 1em;
-  background-color: rgba(9, 59, 89, 0.551);
-  color:white;
+  
+  box-shadow: 10px 10px 8px #b7b7b7;
+    border-radius: 10px;
+  
 
 }
 
 mat-list-item{
   border-bottom: 1px solid rgb(173, 189, 198);
-  color:white;
   text-align: center;
+  color: rgba(50, 101, 131, 0.551);
 }
 
 h3 {
   font-size: 200%;
-  color: rgb(31,82,109);
-  font-weight:200;
+  color: rgb(20, 72, 102);
   font-stretch:ultra-condensed;
+  font-size: 25px;
+  margin-left:10%;
 }
